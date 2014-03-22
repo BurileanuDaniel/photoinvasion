@@ -1,0 +1,15 @@
+﻿@model IEnumerable<PhotoInvasion.Models.UserProfile>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+@foreach (var item in Model)
+{
+    <div>
+        <h4>@item.UserName</h4>
+        <h5>@item.UserId</h5>
+        <hr />
+    </div>
+}

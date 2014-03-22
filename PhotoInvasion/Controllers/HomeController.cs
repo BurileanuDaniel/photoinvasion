@@ -14,9 +14,8 @@ namespace PhotoInvasion.Controllers
         public ActionResult Index()
         {
             //ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            var model = _db.UserProfiles.ToList();
 
-            return View(model);
+            return View();
         }
 
         public ActionResult About()
@@ -28,9 +27,17 @@ namespace PhotoInvasion.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            //ViewBag.Message = "Your contact page.";
+            var model = _db.UserProfiles.Single( u => u.UserName == User.Identity.Name);
 
-            return View();
+            return View(model);
+        }
+
+        public ActionResult Users()
+        {
+            var model = _db.UserProfiles.ToList();
+
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)

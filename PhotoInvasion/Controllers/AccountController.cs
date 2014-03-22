@@ -54,7 +54,7 @@ namespace PhotoInvasion.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
@@ -79,7 +79,14 @@ namespace PhotoInvasion.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new
+                    {
+                        LastName = model.LastName,
+                        FirstName = model.FirstName,
+                        Email = model.Email,
+                        Description = model.Description,
+                        City = model.City
+                    });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

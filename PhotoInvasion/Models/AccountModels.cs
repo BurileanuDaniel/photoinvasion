@@ -25,6 +25,11 @@ namespace PhotoInvasion.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Email { get; set; }
+        public string Description { get; set; }
+        public string City { get; set; }
     }
 
     public class RegisterExternalLoginModel
@@ -75,6 +80,23 @@ namespace PhotoInvasion.Models
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Email address")]
+        public string Email { get; set; }
+
+        [Display(Name = "About yourself")]
+        public string Description { get; set; }
+
+        [Display(Name = "City")]
+        public string City { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

@@ -1,0 +1,34 @@
+﻿@model PhotoInvasion.DAL.Album
+
+@{
+    ViewBag.Title = "Album";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+@Html.ActionLink("Back to albums", "Albums", "Home", new { Id = @Model.UserId }, null)
+@Html.ActionLink("Add photo", "AddPhoto", "Album", new { Id = @Model.Id }, null)
+@if (Model.Photo.Count == 0)
+{
+    <p>No photos in this album.</p>
+}
+else
+{
+    foreach (var photo in Model.Photo)
+    {
+        <div>
+            <p>
+                <span class="label">Category</span>
+                <span>@photo.CategoryId</span>
+            </p>
+            <p>
+                <img src="@photo.Source" />
+                @Html.ActionLink("Delete", "DeletePhoto", "Album", new { Id = @photo.Id }, null)
+            </p>
+            <p>
+                <span class="label">Description</span>
+                <span>@photo.Description</span>
+            </p>
+        </div>
+    }
+}

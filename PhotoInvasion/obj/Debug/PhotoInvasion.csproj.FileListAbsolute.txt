@@ -83,3 +83,10 @@ E:\excite\PhotoInvasion\PhotoInvasion\bin\zh-Hans\System.Spatial.resources.dll
 E:\excite\PhotoInvasion\PhotoInvasion\bin\zh-Hant\System.Spatial.resources.dll
 E:\excite\PhotoInvasion\PhotoInvasion\obj\Debug\PhotoInvasion.dll
 E:\excite\PhotoInvasion\PhotoInvasion\obj\Debug\PhotoInvasion.pdb
+E:\excite\PhotoInvasion\PhotoInvasion\obj\Debug\PhotoInvasion.csprojResolveAssemblyReference.cache
+E:\excite\photoinvasion\PhotoInvasion\bin\EntityFramework.SqlServer.dll
+E:\excite\photoinvasion\PhotoInvasion\bin\EntityFramework.SqlServer.xml
+E:\excite\photoinvasion\PhotoInvasion\bin\PhotoInvasion.BLL.dll
+E:\excite\photoinvasion\PhotoInvasion\bin\PhotoInvasion.DAL.dll
+E:\excite\photoinvasion\PhotoInvasion\bin\PhotoInvasion.BLL.pdb
+E:\excite\photoinvasion\PhotoInvasion\bin\PhotoInvasion.DAL.pdb

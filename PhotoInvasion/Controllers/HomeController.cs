@@ -1,20 +1,24 @@
-﻿using PhotoInvasion.DAL;
+﻿using PhotoInvasion.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PhotoInvasion.BLL;
+using WebMatrix.WebData;
+using PhotoInvasion.Filters;
+
 
 namespace PhotoInvasion.Controllers
 {
+    [InitializeSimpleMembership]
     public class HomeController : Controller
     {
-        UserProfileDbContext  _db = new UserProfileDbContext(); 
+        UsersLogic _usersLogic = new UsersLogic();
+        AlbumsLogic _albumsLogic = new AlbumsLogic();
 
         public ActionResult Index()
         {
-            //ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             return View();
         }
 
@@ -25,29 +29,29 @@ namespace PhotoInvasion.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult ViewProfile(int? id)
         {
-            //ViewBag.Message = "Your contact page.";
-            var model = _db.UserProfiles.Single( u => u.UserName == User.Identity.Name);
+            var userId = (id == null) ? (WebSecurity.CurrentUserId) : (id.Value);
+
+            var model = _usersLogic.getUserProfile(userId);
+
+            return View(model);
+        }
+
+        public ActionResult Albums(int? id)
+        {
+            var userId = (id == null) ? (WebSecurity.CurrentUserId) : (id.Value);
+
+            var model = _albumsLogic.getAlbums(userId);
 
             return View(model);
         }
 
         public ActionResult Users()
         {
-            var model = _db.UserProfiles.ToList();
+            var model = _usersLogic.getUserProfiles();
 
             return View(model);
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if(_db != null)
-            {
-                _db.Dispose();
-            }
-
-            base.Dispose(disposing);
-        }    
     }
 }

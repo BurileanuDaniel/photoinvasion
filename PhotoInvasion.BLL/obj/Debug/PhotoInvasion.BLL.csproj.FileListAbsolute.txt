@@ -1,0 +1,9 @@
+E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.dll
+E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.pdb
+E:\excite\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.csprojResolveAssemblyReference.cache
+E:\excite\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.dll
+E:\excite\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.pdb
+E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.dll
+E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.dll
+E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.pdb
+E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.xml

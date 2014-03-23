@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PhotoInvasion.Models.UserProfile>
+﻿@model IEnumerable<PhotoInvasion.DAL.UserProfile>
 
 @{
     ViewBag.Title = "Home Page";
@@ -8,8 +8,10 @@
 @foreach (var item in Model)
 {
     <div>
+        <p>@item.UserId @item.UserName</p>
         <p>@item.LastName @item.FirstName</p>
         <p>@item.City</p>
+        <p>@item.Description</p>
         <hr />
     </div>
 }

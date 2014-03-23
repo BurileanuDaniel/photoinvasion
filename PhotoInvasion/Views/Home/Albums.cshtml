@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PhotoInvasion.DAL.Album>
+
+@{
+    ViewBag.Title = "Albums";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Albums</h2>
+
+@foreach(var item in Model)
+{
+    <div>
+        <p>
+            <span class="label">Album name:</span>
+            <span>@item.Name</span><br />
+        </p>
+        <p>
+            <span class="label">Date created:</span>
+            <span>@item.Date</span>
+        </p>
+        <p>
+            @Html.ActionLink("View photos", "ViewAlbum", "Album", new { id = @item.Id }, null)
+        </p>
+        <hr />
+    </div>
+}

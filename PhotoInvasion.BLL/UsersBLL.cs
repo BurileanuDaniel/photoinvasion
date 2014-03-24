@@ -7,9 +7,9 @@ using PhotoInvasion.DAL;
 
 namespace PhotoInvasion.BLL
 {
-    public class UsersLogic
+    public class UsersBLL
     {
-        PhotoInvasion.DAL.UsersAccess _access = new PhotoInvasion.DAL.UsersAccess();
+        PhotoInvasion.DAL.UsersDAL _access = new PhotoInvasion.DAL.UsersDAL();
 
         public UserProfile getUserProfile(int userId)
         {

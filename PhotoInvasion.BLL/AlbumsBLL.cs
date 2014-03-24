@@ -7,9 +7,9 @@ using PhotoInvasion.DAL;
 
 namespace PhotoInvasion.BLL
 {
-    public class AlbumsLogic
+    public class AlbumsBLL
     {
-        AlbumsAccess _access = new AlbumsAccess();
+        AlbumsDAL _access = new AlbumsDAL();
 
         public List<Album> getAlbums(int userId)
         {

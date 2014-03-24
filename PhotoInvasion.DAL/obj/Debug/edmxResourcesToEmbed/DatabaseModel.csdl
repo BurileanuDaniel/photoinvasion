@@ -46,7 +46,7 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="Rating1" Type="Int32" Nullable="false" />
     <Property Name="Seen" Type="Byte" Nullable="false" />
-    <Property Name="Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
     <NavigationProperty Name="Photo" Relationship="Self.FK__Rating__PhotoId__5AEE82B9" FromRole="Rating" ToRole="Photo" />
     <NavigationProperty Name="UserProfile" Relationship="Self.FK__Rating__UserId__59FA5E80" FromRole="Rating" ToRole="UserProfile" />
   </EntityType>

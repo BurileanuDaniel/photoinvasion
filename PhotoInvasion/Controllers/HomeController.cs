@@ -14,8 +14,8 @@ namespace PhotoInvasion.Controllers
     [InitializeSimpleMembership]
     public class HomeController : Controller
     {
-        UsersLogic _usersLogic = new UsersLogic();
-        AlbumsLogic _albumsLogic = new AlbumsLogic();
+        UsersBLL _usersLogic = new UsersBLL();
+        AlbumsBLL _albumsLogic = new AlbumsBLL();
 
         public ActionResult Index()
         {

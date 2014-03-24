@@ -23,7 +23,7 @@ else
             </p>
             <p>
                 <img src="@photo.Source" />
-                @Html.ActionLink("Delete", "DeletePhoto", "Album", new { Id = @photo.Id }, null)
+                @Html.ActionLink("Delete", "DeletePhoto", "Album", new { Id = @photo.Id, AlbumId = @photo.AlbumId }, null)
             </p>
             <p>
                 <span class="label">Description</span>

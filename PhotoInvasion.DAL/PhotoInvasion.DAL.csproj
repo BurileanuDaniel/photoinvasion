@@ -51,7 +51,8 @@
     <Compile Include="Album.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AlbumsAccess.cs" />
+    <Compile Include="AlbumsDAL.cs" />
+    <Compile Include="CategoriesDAL.cs" />
     <Compile Include="Category.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
@@ -73,6 +74,7 @@
     <Compile Include="Photo.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PhotosDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
@@ -80,7 +82,7 @@
     <Compile Include="UserProfile.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UsersAccess.cs" />
+    <Compile Include="UsersDAL.cs" />
     <Compile Include="webpages_Membership.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>

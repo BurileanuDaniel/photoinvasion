@@ -11,6 +11,7 @@ namespace PhotoInvasion.DAL
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class Photo
     {
@@ -18,7 +19,7 @@ namespace PhotoInvasion.DAL
         {
             this.Rating = new HashSet<Rating>();
         }
-    
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int UserId { get; set; }
         public int AlbumId { get; set; }

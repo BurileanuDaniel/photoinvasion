@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace PhotoInvasion.Models
+{
+    public class AddPhotoModel
+    {
+        [Required]
+        [Display(Name = "Category")]
+        public int  CategoryId { get; set; }
+
+        [Required]
+        [Display(Name = "Source")]
+        public string Source { get; set; }
+
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+
+        public IEnumerable<PhotoInvasion.DAL.Category> CategoryOptions;
+    }
+
+
+}

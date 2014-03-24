@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhotoInvasion.DAL
 {
-    public class AlbumsAccess
+    public class AlbumsDAL
     {
         DatabaseEntities _entities = new DatabaseEntities();
 

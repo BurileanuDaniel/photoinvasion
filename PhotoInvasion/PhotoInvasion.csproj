@@ -193,6 +193,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\AlbumModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -310,8 +311,8 @@
     <Content Include="Views\Home\ViewProfile.cshtml" />
     <Content Include="Views\Home\Albums.cshtml" />
     <Content Include="Views\Album\ViewAlbum.cshtml" />
-    <Content Include="Views\Album\AddPhoto.cshtml" />
     <Content Include="Views\Album\DeletePhoto.cshtml" />
+    <Content Include="Views\Album\AddPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

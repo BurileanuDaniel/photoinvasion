@@ -11,14 +11,16 @@ namespace PhotoInvasion.DAL
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class Rating
     {
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public int PhotoId { get; set; }
         public int UserId { get; set; }
         public int Rating1 { get; set; }
         public byte Seen { get; set; }
-        public string Id { get; set; }
     
         public virtual Photo Photo { get; set; }
         public virtual UserProfile UserProfile { get; set; }

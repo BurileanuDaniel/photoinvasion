@@ -10,6 +10,7 @@ using PhotoInvasion.Filters;
 
 namespace PhotoInvasion.Controllers
 {
+    [Authorize]
     [InitializeSimpleMembership]
     public class AlbumController : Controller
     {
@@ -30,6 +31,11 @@ namespace PhotoInvasion.Controllers
          * */
         public ActionResult ViewAlbum(int? id)
         {
+            //if (User.Identity.IsAuthenticated == false)
+            //{
+            //    return Content("User must be authenitcated");
+            //}
+
             if (id == null)
             {
                 return Content("No album to display.");

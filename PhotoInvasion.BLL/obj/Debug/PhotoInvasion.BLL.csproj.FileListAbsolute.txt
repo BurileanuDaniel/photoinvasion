@@ -7,3 +7,12 @@ E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.dll
 E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.dll
 E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.pdb
 E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.pdb
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.pdb
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.pdb

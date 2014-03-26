@@ -8,3 +8,13 @@ E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xm
 E:\excite\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
 E:\excite\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb
 E:\excite\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll.config
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.pdb
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb

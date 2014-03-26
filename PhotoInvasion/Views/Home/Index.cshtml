@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PhotoInvasion.DAL.Photo>
+﻿@model PhotoInvasion.BLL.HomePagePhotos
 
 @{
     ViewBag.Title = "Home page";
@@ -7,7 +7,7 @@
 <h1>Newsfeed</h1>
 
 
-@foreach(var photo in Model)
+@foreach(var photo in Model.newsFeedPhotos)
 {
     <div style="border:5px groove grey; width: 200px;display:inline-block;padding:5px">
         <p>
@@ -38,5 +38,77 @@
             <span class="label">Date:</span>
             <span>@photo.Date</span>
         </p>        
+    </div>
+}
+
+<hr />
+<h1>Most Viewed</h1>
+@foreach (var photo in Model.mostViewedPhotos)
+{
+    <div style="border:5px groove grey; width: 200px;display:inline-block;padding:5px">
+        <p>
+            <span class="label">User:</span>
+            <span>@photo.UserProfile.LastName @photo.UserProfile.FirstName</span>
+        </p>
+        <p>
+            <span class="label">Category</span>
+            <span>@photo.Category.Name</span>
+        </p>
+        <a href="@Url.Action("Index", "Home")"><img src="@photo.Source" style="width: 150px" /></a>
+        <p>
+            <span class="label">Rating:</span>
+            @if (@photo.Rating.Count() == 0)
+            {
+                <span>None</span>
+            }
+            else
+            {
+                <span>@photo.Rating.Average(r => r.Rating1)</span>
+            }
+        </p>
+        <p>
+            <span class="label">Description:</span>
+            <span>@photo.Description</span>
+        </p>
+        <p>
+            <span class="label">Date:</span>
+            <span>@photo.Date</span>
+        </p>
+    </div>
+}
+
+<hr />
+<h1>Best Rated</h1>
+@foreach (var photo in Model.bestRatedPhotos)
+{
+    <div style="border:5px groove grey; width: 200px;display:inline-block;padding:5px">
+        <p>
+            <span class="label">User:</span>
+            <span>@photo.UserProfile.LastName @photo.UserProfile.FirstName</span>
+        </p>
+        <p>
+            <span class="label">Category</span>
+            <span>@photo.Category.Name</span>
+        </p>
+        <a href="@Url.Action("Index", "Home")"><img src="@photo.Source" style="width: 150px" /></a>
+        <p>
+            <span class="label">Rating:</span>
+            @if (@photo.Rating.Count() == 0)
+            {
+                <span>None</span>
+            }
+            else
+            {
+                <span>@photo.Rating.Average(r => r.Rating1)</span>
+            }
+        </p>
+        <p>
+            <span class="label">Description:</span>
+            <span>@photo.Description</span>
+        </p>
+        <p>
+            <span class="label">Date:</span>
+            <span>@photo.Date</span>
+        </p>
     </div>
 }

@@ -41,12 +41,37 @@ namespace PhotoInvasion.DAL
             _entities.SaveChanges();
         }
 
-        public List<Photo> getNewsfeed()
+        public List<PhotoInvasion.DAL.Photo> getNewsfeed()
         {
             return _entities.Photo
                             .OrderByDescending(p => p.Date)
                             .Take(10)
                             .ToList();
+        }
+
+        public List<PhotoInvasion.DAL.Photo> getMostViewed()
+        {
+            return _entities.Photo
+                        .OrderByDescending(p => p.Views)
+                        .Take(10)
+                        .ToList();
+        }
+
+        public List<PhotoInvasion.DAL.Photo> getBestRated()
+        {
+            return _entities.Photo
+                        .OrderByDescending(p => p.Rating.Average(r => r.Rating1))
+                        .Take(10)
+                        .ToList();
+        }
+
+        public List<PhotoInvasion.DAL.Photo> getRecentActivity(int userId)
+        {
+            return _entities.Photo
+                        .OrderByDescending(p => p.Date)
+                        .Where(p => p.UserId == userId)
+                        .Take(5)
+                        .ToList();
         }
     }
 }

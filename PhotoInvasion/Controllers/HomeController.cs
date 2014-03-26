@@ -21,9 +21,9 @@ namespace PhotoInvasion.Controllers
 
         public ActionResult Index()
         {
-            var model = _photosLogic.getNewsfeed();
+            HomePagePhotos result = _photosLogic.getHomePhotos();
 
-            return View(model);
+            return View(result);
         }
 
         public ActionResult About()
@@ -37,7 +37,11 @@ namespace PhotoInvasion.Controllers
         {
             var userId = (id == null) ? (WebSecurity.CurrentUserId) : (id.Value);
 
-            var model = _usersLogic.getUserProfile(userId);
+            var model = new ProfileViewModel
+            {
+                userProfile = _usersLogic.getUserProfile(userId),
+                recentActivity = _photosLogic.getRecentActivity(userId)
+            };
 
             return View(model);
         }

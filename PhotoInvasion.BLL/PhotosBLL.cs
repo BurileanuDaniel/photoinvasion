@@ -20,5 +20,10 @@ namespace PhotoInvasion.BLL
         {
             _access.deletePhoto(id);
         }
+
+        public List<PhotoInvasion.DAL.Photo> getNewsfeed()
+        {
+            return _access.getNewsfeed();
+        }
     }
 }

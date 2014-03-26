@@ -11,15 +11,19 @@ using PhotoInvasion.Filters;
 
 namespace PhotoInvasion.Controllers
 {
+    [Authorize]
     [InitializeSimpleMembership]
     public class HomeController : Controller
     {
         UsersBLL _usersLogic = new UsersBLL();
         AlbumsBLL _albumsLogic = new AlbumsBLL();
+        PhotosBLL _photosLogic = new PhotosBLL();
 
         public ActionResult Index()
         {
-            return View();
+            var model = _photosLogic.getNewsfeed();
+
+            return View(model);
         }
 
         public ActionResult About()

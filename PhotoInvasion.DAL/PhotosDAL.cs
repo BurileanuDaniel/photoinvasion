@@ -41,5 +41,12 @@ namespace PhotoInvasion.DAL
             _entities.SaveChanges();
         }
 
+        public List<Photo> getNewsfeed()
+        {
+            return _entities.Photo
+                            .OrderByDescending(p => p.Date)
+                            .Take(10)
+                            .ToList();
+        }
     }
 }

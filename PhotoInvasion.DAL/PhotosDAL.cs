@@ -41,7 +41,7 @@ namespace PhotoInvasion.DAL
             _entities.SaveChanges();
         }
 
-        public List<Photo> getNewsfeed()
+        public List<PhotoInvasion.DAL.Photo> getNewsfeed()
         {
             return _entities.Photo
                             .OrderByDescending(p => p.Date)

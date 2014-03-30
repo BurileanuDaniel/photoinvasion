@@ -11,7 +11,6 @@ namespace PhotoInvasion.DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
     
     public partial class Album
     {
@@ -19,8 +18,7 @@ namespace PhotoInvasion.DAL
         {
             this.Photo = new HashSet<Photo>();
         }
-
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> Date { get; set; }

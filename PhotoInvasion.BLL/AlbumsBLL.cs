@@ -20,5 +20,10 @@ namespace PhotoInvasion.BLL
         {
             return _access.getAlbumDetails(albumId);
         }
+
+        public void addAlbum(PhotoInvasion.DAL.Album album)
+        {
+            _access.addAlbum(album);
+        }
     }
 }

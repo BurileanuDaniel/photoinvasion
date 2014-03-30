@@ -17,6 +17,7 @@ namespace PhotoInvasion.Controllers
         AlbumsBLL _albumLogic = new AlbumsBLL();
         CategoriesBLL _categoriesLogic = new CategoriesBLL();
         PhotosBLL _photosLogic = new PhotosBLL();
+        RatingsBLL _ratingsLogic = new RatingsBLL();
         //
         // GET: /Album/
 
@@ -83,11 +84,36 @@ namespace PhotoInvasion.Controllers
                         UserId = WebSecurity.CurrentUserId,
                         Source = model.Source,
                         Description = model.Description,
-                        CategoryId = model.CategoryId
+                        CategoryId = model.CategoryId,
+                        Views = 0,
+                        Date = DateTime.Now
                     });
             }
 
             return RedirectToAction("ViewAlbum", "Album", new { id = id.Value });
+        }
+
+        public ActionResult ViewPhoto(int? id, string returnUrl)
+        {
+            if (id == null)
+            {
+                return Content("No photo selected!");
+            }
+            else
+            {
+                int rating = _ratingsLogic.getRating(id.Value, WebSecurity.CurrentUserId);
+                _photosLogic.viewPhoto(id.Value);
+                var photo = _photosLogic.getPhoto(id.Value);
+                var model = new PhotoViewModel
+                {
+                    photo = photo,
+                    returnUrl = returnUrl,
+                    rating = rating
+                };
+
+
+                return View(model);
+            }
         }
 
         /*
@@ -103,6 +129,26 @@ namespace PhotoInvasion.Controllers
 
             _photosLogic.deletePhoto(id.Value);
             return RedirectToAction("ViewAlbum", "Album", new { id = AlbumId.Value});
+        }
+
+        public ActionResult RatePhoto(int id, int rating, string returnUrl)
+        {
+            _ratingsLogic.addRating(new PhotoInvasion.DAL.Rating
+            {
+                PhotoId = id,
+                Rating1 = rating,
+                Seen = 0,
+                UserId = WebSecurity.CurrentUserId
+            });
+
+            return RedirectToAction("ViewPhoto", "Album", new {id = id, returnUrl = returnUrl});
+        }
+
+        public ActionResult DeleteRating(int id, string returnUrl)
+        {
+            _ratingsLogic.deleteRating(id, WebSecurity.CurrentUserId);
+
+            return RedirectToAction("ViewPhoto", "Album", new { id = id, returnUrl = returnUrl });
         }
     }
 }

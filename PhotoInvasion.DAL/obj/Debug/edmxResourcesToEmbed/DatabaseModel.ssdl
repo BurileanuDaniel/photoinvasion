@@ -35,11 +35,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PhotoId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="Rating" Type="int" Nullable="false" />
     <Property Name="Seen" Type="tinyint" Nullable="false" />
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Computed" Nullable="false" />
   </EntityType>
   <EntityType Name="UserProfile">
     <Key>
@@ -141,7 +141,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rating__PhotoId__6B24EA82">
+  <Association Name="FK__Rating__PhotoId__03F0984C">
     <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
     <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
     <ReferentialConstraint>
@@ -153,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rating__UserId__6A30C649">
+  <Association Name="FK__Rating__UserId__02FC7413">
     <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
     <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
     <ReferentialConstraint>
@@ -191,11 +191,11 @@
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="Photo" EntitySet="Photo" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rating__PhotoId__6B24EA82" Association="Self.FK__Rating__PhotoId__6B24EA82">
+    <AssociationSet Name="FK__Rating__PhotoId__03F0984C" Association="Self.FK__Rating__PhotoId__03F0984C">
       <End Role="Photo" EntitySet="Photo" />
       <End Role="Rating" EntitySet="Rating" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rating__UserId__6A30C649" Association="Self.FK__Rating__UserId__6A30C649">
+    <AssociationSet Name="FK__Rating__UserId__02FC7413" Association="Self.FK__Rating__UserId__02FC7413">
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="Rating" EntitySet="Rating" />
     </AssociationSet>

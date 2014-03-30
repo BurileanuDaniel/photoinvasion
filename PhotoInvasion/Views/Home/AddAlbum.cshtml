@@ -1,0 +1,37 @@
+﻿@model PhotoInvasion.Models.AddAlbumModel
+
+@{
+    ViewBag.Title = "AddAlbum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddAlbum</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AddAlbumModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Albums", "Albums")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

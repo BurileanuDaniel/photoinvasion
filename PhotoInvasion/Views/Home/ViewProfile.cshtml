@@ -47,7 +47,7 @@
             <span class="label">Category</span>
             <span>@photo.Category.Name</span>
         </p>
-        <a href="@Url.Action("Index", "Home")"><img src="@photo.Source" style="width: 150px" /></a>
+        <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)"><img src="@photo.Source" style="width: 150px" /></a>
         <p>
             <span class="label">Rating:</span>
             @if (@photo.Rating.Count() == 0)

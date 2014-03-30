@@ -23,6 +23,16 @@ namespace PhotoInvasion.BLL
             _access.addPhoto(photo);
         }
 
+        public void viewPhoto(int id)
+        {
+            _access.viewPhoto(id);
+        }
+
+        public PhotoInvasion.DAL.Photo getPhoto(int id)
+        {
+            return _access.getPhoto(id);
+        }
+
         public void deletePhoto(int id)
         {
             _access.deletePhoto(id);

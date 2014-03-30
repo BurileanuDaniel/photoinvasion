@@ -49,10 +49,35 @@ namespace PhotoInvasion.Controllers
         public ActionResult Albums(int? id)
         {
             var userId = (id == null) ? (WebSecurity.CurrentUserId) : (id.Value);
-
             var model = _albumsLogic.getAlbums(userId);
+            
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult AddAlbum()
+        {
+            var model = new AddAlbumModel();
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddAlbum(AddAlbumModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _albumsLogic.addAlbum(new PhotoInvasion.DAL.Album
+                {
+                    Date = DateTime.Now,
+                    Name = model.Name,
+                    UserId = WebSecurity.CurrentUserId
+                });
+
+                return RedirectToAction("Albums", "Home");
+            }
+
+            return Content("invalid");
         }
 
         public ActionResult Users()

@@ -79,6 +79,7 @@
     <Compile Include="Rating.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RatingsDAL.cs" />
     <Compile Include="UserProfile.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>

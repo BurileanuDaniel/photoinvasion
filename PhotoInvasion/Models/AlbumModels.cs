@@ -22,5 +22,11 @@ namespace PhotoInvasion.Models
         public IEnumerable<PhotoInvasion.DAL.Category> CategoryOptions;
     }
 
+    public class AddAlbumModel
+    {
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+    }
 
 }

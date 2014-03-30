@@ -22,7 +22,7 @@ else
                 <span>@photo.Category.Name</span>
             </p>
             <p>
-                <img src="@photo.Source" />
+                <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)"><img src="@photo.Source" /></a>
                 @Html.ActionLink("Delete", "DeletePhoto", "Album", new { Id = @photo.Id, AlbumId = @photo.AlbumId }, null)
             </p>
             <p>

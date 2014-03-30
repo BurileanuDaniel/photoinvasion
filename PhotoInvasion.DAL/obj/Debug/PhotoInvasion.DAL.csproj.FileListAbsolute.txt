@@ -1,13 +1,3 @@
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll.config
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.pdb
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.dll
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.dll
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.xml
-E:\excite\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\excite\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
-E:\excite\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb
-E:\excite\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll.config
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.pdb
@@ -18,3 +8,13 @@ C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFra
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll.config
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.pdb
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.dll
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.xml
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb

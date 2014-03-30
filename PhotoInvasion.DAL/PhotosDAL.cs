@@ -32,6 +32,24 @@ namespace PhotoInvasion.DAL
 
         }
 
+        public void viewPhoto(int id)
+        {
+            Photo photo = _entities.Photo.Find(id);
+                            //.Select(p => p.Id == id)
+                            //.First();
+                            //.SingleOrDefault();
+            photo.Views += 1;
+            _entities.SaveChanges();
+                
+        }
+
+        public PhotoInvasion.DAL.Photo getPhoto(int id)
+        {
+            return _entities.Photo
+                        .Where(p => p.Id == id)
+                        .SingleOrDefault();
+        }
+
         public void deletePhoto(int id)
         {
             var photo = _entities.Photo

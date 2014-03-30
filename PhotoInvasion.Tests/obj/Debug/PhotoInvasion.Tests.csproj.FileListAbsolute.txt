@@ -18,7 +18,10 @@ E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.Razor.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.WebPages.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\EntityFramework.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.Optimization.dll
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.BLL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.DAL.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\DotNetOpenAuth.Core.dll
@@ -41,6 +44,9 @@ E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.Http.OData.xml
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.Data.Edm.xml
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.Data.OData.xml
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Spatial.xml
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\EntityFramework.xml
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.BLL.pdb
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.DAL.pdb
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.xml
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\DotNetOpenAuth.AspNet.xml
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\DotNetOpenAuth.Core.xml
@@ -78,9 +84,3 @@ E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\zh-Hant\System.Spatial.res
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\obj\Debug\PhotoInvasion.Tests.csprojResolveAssemblyReference.cache
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\obj\Debug\PhotoInvasion.Tests.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\obj\Debug\PhotoInvasion.Tests.pdb
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\EntityFramework.dll
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\EntityFramework.xml
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.BLL.dll
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.DAL.dll
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.BLL.pdb
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.DAL.pdb

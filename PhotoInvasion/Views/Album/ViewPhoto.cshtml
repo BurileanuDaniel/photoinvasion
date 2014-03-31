@@ -1,0 +1,45 @@
+﻿@model PhotoInvasion.Models.PhotoViewModel
+
+@{
+    ViewBag.Title = "ViewPhoto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View Photo</h2>
+<img src="@Model.photo.Source" />
+<p>
+    <span class="label">Description</span>
+    <span>@Model.photo.Description</span>
+</p>
+<p>
+    <span class="label">Category</span>
+    <span>@Model.photo.Category.Name</span>
+</p>
+
+
+
+@if (@Model.rating == -1)
+{
+    <div id="ratePhoto">
+    <a class="rateButton" href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 1, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 2, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 3, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 4, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 5, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+    </div>
+}
+else
+{
+    <div id="ratePhoto">
+    @for (int i = 0; i < Model.rating; ++i)
+    {
+        <i class="fa fa-star fa-3x"></i>
+    }
+    </div>
+    <a href="@Url.Action("DeleteRating", "Album", new { id = @Model.photo.Id, returnUrl = @Model.returnUrl }, null)">Delete rating</a>
+}
+
+<hr />
+<a href="@Model.returnUrl">Back</a>
+
+@Scripts.Render("~/Scripts/viewPhoto.js")

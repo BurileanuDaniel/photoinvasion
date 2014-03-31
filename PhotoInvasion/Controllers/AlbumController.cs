@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PhotoInvasion.BLL;
 using PhotoInvasion.Models;
 using WebMatrix.WebData;
 using PhotoInvasion.Filters;
+using PhotoInvasion.BLL;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace PhotoInvasion.Controllers
 {
@@ -17,6 +19,13 @@ namespace PhotoInvasion.Controllers
         AlbumsBLL _albumLogic = new AlbumsBLL();
         CategoriesBLL _categoriesLogic = new CategoriesBLL();
         PhotosBLL _photosLogic = new PhotosBLL();
+        RatingsBLL _ratingsLogic = new RatingsBLL();
+
+        private CloudStorageAccount storageAccount =
+           CloudStorageAccount.Parse(
+               "DefaultEndpointsProtocol=http;AccountName=storagetest;AccountKey=wLExFPdTfbZ4KTqB890l+gzIKNMTww6PeKpXhJ8LPVR7pwdgjft0Z1KaO5wjdqmtzS5R7Nrs4G1sxWqgkPGcFQ==;");
+
+
         //
         // GET: /Album/
 
@@ -69,10 +78,35 @@ namespace PhotoInvasion.Controllers
         [HttpPost]
         public ActionResult AddPhoto(AddPhotoModel model, int? id)
         {
+
             if (id == null)
             {
                 return Content("No album selected!");
             }
+
+            string status = "Upload cu success";
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+            container.CreateIfNotExists();
+
+            var file = Request.Files["myfile"];
+            string url = "";
+            if (file != null)
+            {
+                Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob blockBlob = container.GetBlockBlobReference(file.FileName);
+
+                try
+                {
+                    blockBlob.UploadFromStream(file.InputStream);
+                    url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
+                }
+                catch (Exception)
+                {
+                    status = "Upload nereusit";
+                }
+            }
+
+
 
             if (ModelState.IsValid)
             {
@@ -81,13 +115,39 @@ namespace PhotoInvasion.Controllers
                     {
                         AlbumId = id.Value,
                         UserId = WebSecurity.CurrentUserId,
-                        Source = model.Source,
+                        //Source = model.Source,
+                        Source = url,
                         Description = model.Description,
-                        CategoryId = model.CategoryId
+                        CategoryId = model.CategoryId,
+                        Views = 0,
+                        Date = DateTime.Now
                     });
             }
 
             return RedirectToAction("ViewAlbum", "Album", new { id = id.Value });
+        }
+
+        public ActionResult ViewPhoto(int? id, string returnUrl)
+        {
+            if (id == null)
+            {
+                return Content("No photo selected!");
+            }
+            else
+            {
+                int rating = _ratingsLogic.getRating(id.Value, WebSecurity.CurrentUserId);
+                _photosLogic.viewPhoto(id.Value);
+                var photo = _photosLogic.getPhoto(id.Value);
+                var model = new PhotoViewModel
+                {
+                    photo = photo,
+                    returnUrl = returnUrl,
+                    rating = rating
+                };
+
+
+                return View(model);
+            }
         }
 
         /*
@@ -103,6 +163,26 @@ namespace PhotoInvasion.Controllers
 
             _photosLogic.deletePhoto(id.Value);
             return RedirectToAction("ViewAlbum", "Album", new { id = AlbumId.Value});
+        }
+
+        public ActionResult RatePhoto(int id, int rating, string returnUrl)
+        {
+            _ratingsLogic.addRating(new PhotoInvasion.DAL.Rating
+            {
+                PhotoId = id,
+                Rating1 = rating,
+                Seen = 0,
+                UserId = WebSecurity.CurrentUserId
+            });
+
+            return RedirectToAction("ViewPhoto", "Album", new {id = id, returnUrl = returnUrl});
+        }
+
+        public ActionResult DeleteRating(int id, string returnUrl)
+        {
+            _ratingsLogic.deleteRating(id, WebSecurity.CurrentUserId);
+
+            return RedirectToAction("ViewPhoto", "Album", new { id = id, returnUrl = returnUrl });
         }
     }
 }

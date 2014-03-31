@@ -1,12 +1,3 @@
-E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.dll
-E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.pdb
-E:\excite\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.csprojResolveAssemblyReference.cache
-E:\excite\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.dll
-E:\excite\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.pdb
-E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.dll
-E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.dll
-E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.pdb
-E:\excite\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.xml
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.pdb
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.dll
@@ -16,3 +7,12 @@ C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\bin\Debug\EntityFra
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.pdb
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.BLL.pdb
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.dll
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\bin\Debug\PhotoInvasion.DAL.pdb
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\bin\Debug\EntityFramework.xml
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.csprojResolveAssemblyReference.cache
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.BLL\obj\Debug\PhotoInvasion.BLL.pdb

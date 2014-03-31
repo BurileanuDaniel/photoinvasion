@@ -583,9 +583,16 @@ td {
 }
 
 tr.pager td {
-    padding: 0 0.25em 0 0;
+    padding: 0 0.25em 0 0; 
 }
 
+
+/**
+    Custom style
+*/
+#ratePhoto a:hover, #ratePhoto a:link, #ratePhoto a:visited, #ratePhoto a:active {
+    background-color:none;
+}
 
 /********************
 *   Mobile Styles   *

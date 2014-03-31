@@ -12,7 +12,7 @@ namespace PhotoInvasion.Models
         [Display(Name = "Category")]
         public int  CategoryId { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Source")]
         public string Source { get; set; }
 
@@ -22,5 +22,11 @@ namespace PhotoInvasion.Models
         public IEnumerable<PhotoInvasion.DAL.Category> CategoryOptions;
     }
 
+    public class AddAlbumModel
+    {
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+    }
 
 }

@@ -5,7 +5,6 @@ C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFra
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.xml
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\PhotoInvasion.DAL.dll.config
@@ -18,3 +17,13 @@ E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xm
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.WindowsAzure.CloudDrive.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.WindowsAzure.StorageClient.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\System.Spatial.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.WindowsAzure.CloudDrive.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\bin\Debug\Microsoft.WindowsAzure.StorageClient.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache

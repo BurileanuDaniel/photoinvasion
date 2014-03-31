@@ -6,14 +6,14 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7d0c459b22a1485a8b6f484b58c6450a" Name="Diagram1">
         <EntityTypeShape EntityType="DatabaseModel.Album" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Category" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Category" Width="1.5" PointX="1.375" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Photo" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Rating" Width="1.5" PointX="8.375" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.UserProfile" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.webpages_Membership" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.webpages_Membership" Width="1.5" PointX="5.625" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.webpages_OAuthMembership" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.webpages_Roles" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.webpages_UsersInRoles" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.webpages_Roles" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.webpages_UsersInRoles" Width="1.5" PointX="2.5" PointY="7.875" IsExpanded="true" />
         <AssociationConnector Association="DatabaseModel.FK__Album__UserId__52593CB8" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK__Photo__AlbumId__5629CD9C" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK__Photo__CategoryI__571DF1D5" ManuallyRouted="false" />

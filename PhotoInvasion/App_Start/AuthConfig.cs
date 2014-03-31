@@ -26,7 +26,7 @@ namespace PhotoInvasion
                 appId: "1453983538170294",
                 appSecret: "a69f9a2560018e685cf11ca4a0c9e694");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }

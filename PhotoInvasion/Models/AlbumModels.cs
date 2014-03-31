@@ -12,7 +12,7 @@ namespace PhotoInvasion.Models
         [Display(Name = "Category")]
         public int  CategoryId { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Source")]
         public string Source { get; set; }
 

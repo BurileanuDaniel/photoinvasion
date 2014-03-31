@@ -1,4 +1,4 @@
-﻿@model PhotoInvasion.DAL.UserProfile
+﻿@model PhotoInvasion.Models.ProfileViewModel
 
 @{
     ViewBag.Title = "Profile";
@@ -15,21 +15,58 @@
     </header>
     <p>
         <span class="label">Name:</span>
-        <span>@Model.LastName @Model.FirstName</span>
+        <span>@Model.userProfile.LastName @Model.userProfile.FirstName</span>
     </p>
     <p>
         <span class="label">Email:</span>
-        <span>@Model.Email</span>
+        <span>@Model.userProfile.Email</span>
     </p>
     <header>
         <h3>Description</h3>
     </header>
     <p>
         <span class="label">About me:</span>
-        <span>@Model.Description</span>
+        <span>@Model.userProfile.Description</span>
     </p>
     <p>
         <span class="label">City:</span>
-        <span>@Model.City</span>
+        <span>@Model.userProfile.City</span>
     </p>
+
+    <hr/>
+    <h2>Recent Activity</h2>
+
+    @foreach (var photo in Model.recentActivity)
+    {
+<div style="border:5px groove grey; width: 200px;display:inline-block;padding:5px">
+        <p>
+            <span class="label">User:</span>
+            <span>@photo.UserProfile.LastName @photo.UserProfile.FirstName</span>
+        </p>
+        <p>
+            <span class="label">Category</span>
+            <span>@photo.Category.Name</span>
+        </p>
+        <a href="@Url.Action("Index", "Home")"><img src="@photo.Source" style="width: 150px" /></a>
+        <p>
+            <span class="label">Rating:</span>
+            @if (@photo.Rating.Count() == 0)
+            {
+                <span>None</span>
+            }
+            else
+            {
+                <span>@photo.Rating.Average(r => r.Rating1)</span>
+            }
+        </p>
+        <p>
+            <span class="label">Description:</span>
+            <span>@photo.Description</span>
+        </p>
+        <p>
+            <span class="label">Date:</span>
+            <span>@photo.Date</span>
+        </p>
+    </div>
+    }
 </section>

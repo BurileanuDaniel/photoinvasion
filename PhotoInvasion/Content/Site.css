@@ -5,9 +5,9 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: #ccc;
     border-top: solid 10px #000;
-    color: #333;
+    color: #fff;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -15,20 +15,21 @@ body {
 }
 
 a {
-    color: #333;
+    color: #fff;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
+    text-decoration: none;
 }
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        /*color: #333;*/
     }
 
     a:hover {
-        background-color: #c7d1d6;
+        /*background-color: #c7d1d6;*/
     }
 
 header, footer, hgroup,
@@ -60,7 +61,8 @@ mark {
 
 h1, h2, h3,
 h4, h5, h6 {
-    color: #000;
+    font-family:Rockwell, Consolas, "Courier New", Courier, monospace;
+    color: #fff;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -95,32 +97,42 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 80%;
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #ccc;
     clear: both;
     padding-bottom: 35px;
 }
 
-    .main-content {
-        background: url("../Images/accent.png") no-repeat;
-        padding-left: 10px;
-        padding-top: 30px;
-    }
+.main-content {
+    /*background: url("../Images/accent.png") no-repeat;*/
+    background-color: #222;
+    padding:0 15px;
+    padding-top: 30px;
+    /*border:2px groove #e3e3e3 ;*/
+    border-radius: 0px 0px 20px 20px;
+    min-height:600px;
+}
 
-    .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
-    }
+.featured + .main-content {
+    background: url("../Images/heroAccent.png") no-repeat;
+}
 
 header .content-wrapper {
-    padding-top: 20px; 
+    background-color: #222;
+    padding:15px 15px 20px 15px;
+    overflow: hidden;
+    border-bottom: 2px solid #e3e3e3;
+    /*border:2px groove #e3e3e3;*/
+    border-radius: 20px 20px 0px 0px;
 }
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    /*background-color: #e2e2e2;*/
+    background-color: #000;
     font-size: .8em;
     height: 100px;
 }
@@ -131,41 +143,46 @@ footer {
 .site-title {
     color: #c8c8c8;
     font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
-    font-size: 2.3em;
+    font-size: 3em;
+    font-weight: bold;
     margin: 0;
+    display:inline;
 }
 
-.site-title a, .site-title a:hover, .site-title a:active {
-    background: none;
-    color: #c8c8c8;
-    outline: none;
-    text-decoration: none;
-}
+    .site-title a, .site-title a:hover, .site-title a:active {
+        background: none;
+        color: #c8c8c8;
+        outline: none;
+        text-decoration: none;
+    }
 
 
 /* login
 ----------------------------------------------------------*/
 #login {
     display: block;
-    font-size: .85em;
     margin: 0 0 10px;
     text-align: right;
+    color: white;
 }
 
     #login a {
-        background-color: #d3dce0;
+        /*background-color: #d3dce0;*/
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
         text-decoration: none;
     }
 
-    #login a.username {
-        background: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: underline;
-    }
+        #login a.username {
+            background: none;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            font-style:oblique;
+            font-weight: bold;
+            color: white;
+        }
 
     #login ul {
         margin: 0;
@@ -174,6 +191,10 @@ footer {
     #login li {
         display: inline;
         list-style: none;
+    }
+
+    #login i {
+        color: white;
     }
 
 
@@ -199,10 +220,10 @@ ul#menu {
             text-decoration: none;
         }
 
-        ul#menu li a:hover {
-            color: #333;
-            text-decoration: none;
-        }
+            ul#menu li a:hover {
+                color: #333;
+                text-decoration: none;
+            }
 
 
 /* page elements
@@ -223,27 +244,27 @@ ul#menu {
         padding: 20px 40px 30px 40px;
     }
 
-        .featured hgroup.title h1, .featured hgroup.title h2 {
-            color: #fff;
-        }
+    .featured hgroup.title h1, .featured hgroup.title h2 {
+        color: #fff;
+    }
 
-        .featured p {
-            font-size: 1.1em;
-        }
+    .featured p {
+        font-size: 1.1em;
+    }
 
 /* page titles */
 hgroup.title {
     margin-bottom: 10px;
 }
 
-hgroup.title h1, hgroup.title h2 {
-    display: inline;
-}
+    hgroup.title h1, hgroup.title h2 {
+        display: inline;
+    }
 
-hgroup.title h2 {
-    font-weight: normal;
-    margin-left: 3px;
-}
+    hgroup.title h2 {
+        font-weight: normal;
+        margin-left: 3px;
+    }
 
 /* features */
 section.feature {
@@ -326,6 +347,7 @@ aside {
 
 .label {
     font-weight: 700;
+    color: white;
 }
 
 /* login page */
@@ -355,12 +377,12 @@ aside {
         width: 250px;
     }
 
-    #loginForm input[type="checkbox"],
-    #loginForm input[type="submit"],
-    #loginForm input[type="button"],
-    #loginForm button {
-        width: auto;
-    }
+        #loginForm input[type="checkbox"],
+        #loginForm input[type="submit"],
+        #loginForm input[type="button"],
+        #loginForm button {
+            width: auto;
+        }
 
 #socialLoginForm {
     margin-left: 40px;
@@ -369,7 +391,7 @@ aside {
 }
 
     #socialLoginForm h2 {
-        margin-bottom:  5px;
+        margin-bottom: 5px;
     }
 
 #socialLoginList button {
@@ -420,14 +442,15 @@ label {
     font-weight: 600;
 }
 
-label.checkbox {
-    display: inline;
-}
+    label.checkbox {
+        display: inline;
+    }
 
 input, textarea {
     border: 1px solid #e2e2e2;
-    background: #fff;
-    color: #333;
+    border-radius:15px;
+    background: #555;
+    color: #fff;
     font-size: 1.2em;
     margin: 5px 0 6px 0;
     padding: 5px;
@@ -443,32 +466,42 @@ textarea {
         border: 1px solid #7ac0da;
     }
 
-    input[type="checkbox"] {
-        background: transparent;
-        border: inherit;
-        width: auto;
+input[type="checkbox"] {
+    background: transparent;
+    border: inherit;
+    width: auto;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+    background-color: #000;
+    border: 1px solid #555;
+    border-radius: 5px 3px 5px 3px;
+    font-family: Aharoni;
+    color:white;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 7px;
+    margin-right: 8px;
+    width: auto;
+}
+
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    button:hover {
+        background-color: #111;
     }
 
-    input[type="submit"],
-    input[type="button"],
-    button {
-        background-color: #d3dce0;
-        border: 1px solid #787878;
-        cursor: pointer;
-        font-size: 1.2em;
-        font-weight: 600;
-        padding: 7px;
-        margin-right: 8px;
-        width: auto;
-    }
 
-    td input[type="submit"],
-    td input[type="button"],
-    td button {
-        font-size: 1em;
-        padding: 4px;
-        margin-right: 4px;
-    }
+td input[type="submit"],
+td input[type="button"],
+td button {
+    font-size: 1em;
+    padding: 4px;
+    margin-right: 4px;
+}
 
 /* info and errors */
 .message-info {
@@ -546,36 +579,36 @@ th {
         position: relative;
     }
 
-    th a:link, th a:visited, th a:active, th a:hover {
-        color: #333;
-        font-weight: 600;
-        text-decoration: none;
-        padding: 0;
-    }
+        th a:link, th a:visited, th a:active, th a:hover {
+            color: #333;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0;
+        }
 
-    th a:hover {
-        color: #000;
-    }
+        th a:hover {
+            color: #000;
+        }
 
     th.asc a, th.desc a {
         margin-right: .75em;
     }
 
-    th.asc a:after, th.desc a:after {
-        display: block;
-        position: absolute;
-        right: 0em;
-        top: 0;
-        font-size: 0.75em;
-    }
+        th.asc a:after, th.desc a:after {
+            display: block;
+            position: absolute;
+            right: 0em;
+            top: 0;
+            font-size: 0.75em;
+        }
 
-    th.asc a:after {
-        content: '▲';
-    }
+        th.asc a:after {
+            content: '▲';
+        }
 
-    th.desc a:after {
-        content: '▼';
-    }
+        th.desc a:after {
+            content: '▼';
+        }
 
 td {
     padding: 0.25em 2em 0.25em 0em;
@@ -583,7 +616,7 @@ td {
 }
 
 tr.pager td {
-    padding: 0 0.25em 0 0; 
+    padding: 0 0.25em 0 0;
 }
 
 
@@ -591,8 +624,229 @@ tr.pager td {
     Custom style
 */
 #ratePhoto a:hover, #ratePhoto a:link, #ratePhoto a:visited, #ratePhoto a:active {
-    background-color:none;
+    background-color: none;
 }
+
+#logo {
+    position: relative;
+    top: 15px;
+    width: 150px;
+    display: inline;
+}
+
+.homePhotosContainer {
+    float: left;
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.block-menu {
+    position:relative;
+    top:50px;
+	display: block;
+	background: #222;
+}
+
+.block-menu li {
+	display: inline-block;
+}
+
+.block-menu li a {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	/*font-family: 'Passion One', Arial, sans-serif;*/
+	font-smoothing: antialiased;
+	/*text-transform: uppercase;*/
+	overflow: visible;
+	line-height: 20px;
+	/*font-size: 24px;*/
+	padding: 15px 10px;
+}
+
+/* animation domination */
+.three-d {
+	perspective: 200px;
+	transition: all .07s linear;
+	position: relative;
+	cursor: pointer;
+}
+	/* complete the animation! */
+	.three-d:hover .three-d-box, 
+	.three-d:focus .three-d-box {
+		transform: translateZ(-25px) rotateX(90deg);
+	}
+
+.three-d-box {
+	transition: all .3s ease-out;
+	transform: translatez(-25px);
+	transform-style: preserve-3d;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+/* 
+	put the "front" and "back" elements into place with CSS transforms, 
+	specifically translation and translatez
+*/
+.front {
+	transform: rotatex(0deg) translatez(25px);
+}
+
+.back {
+	transform: rotatex(-90deg) translatez(25px);
+	color: #ffe7c4;
+}
+
+.front, .back {
+	display: block;
+	width: 100%;
+	height: 100%;
+    border:2px solid white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+	padding: 15px 10px;
+	color: white;
+	pointer-events: none;
+	box-sizing: border-box;
+}
+
+.effect
+{
+  	position:relative;       
+    -webkit-box-shadow:20px 10px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:20px 10px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:20px 10px 30px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect:before, .effect:after
+{
+	content:"";
+    position:absolute; 
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+} 
+.effect:after
+{
+	right:10px; 
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg); 
+       -moz-transform:skew(8deg) rotate(3deg);     
+        -ms-transform:skew(8deg) rotate(3deg);     
+         -o-transform:skew(8deg) rotate(3deg); 
+            transform:skew(8deg) rotate(3deg);
+}
+
+.imageWrapper {
+    display:inline-block;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 16%;
+    height: 10px;
+    -webkit-box-shadow: 
+        2px 2px 2px rgba(255,255,255,0.5),
+        4px 4px 2px rgba(255,255,255,0.4),
+        6px 6px 2px rgba(255,255,255,0.3),
+        8px 8px 2px rgba(255,255,255,0.2),
+        10px 10px 2px rgba(255,255,255,0.1);
+    -moz-box-shadow: 
+        2px 2px 2px rgba(255,255,255,0.5),
+        4px 4px 2px rgba(255,255,255,0.4),
+        6px 6px 2px rgba(255,255,255,0.3),
+        8px 8px 2px rgba(255,255,255,0.2),
+        10px 10px 2px rgba(255,255,255,0.1);
+    box-shadow: 
+        2px 2px 2px rgba(255,255,255,0.5),
+        4px 4px 2px rgba(255,255,255,0.4),
+        6px 6px 2px rgba(255,255,255,0.3),
+        8px 8px 2px rgba(255,255,255,0.2),
+        10px 10px 2px rgba(255,255,255,0.1);
+}
+
+.imageWrapper img {
+    border: 1px solid white;
+}
+
+.imageWrapper table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#footerText {
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+}
+
+span {
+    color: white;
+}
+
+.addButton {
+    color: white;
+    font-size: 1.25em;
+}
+
+.addButton:hover {
+    color:#e3e3e3;
+}
+
+.albumIcon {
+    display:inline-table;
+    background-color: #000;
+    border-radius: 10px 5px 10px 5px;
+    padding: 10px;
+    margin: 10px;
+    border:1px solid white;
+    width: 200px;
+    height: 250px;
+}
+
+.albumIcon:hover {
+    transform:rotate(3deg);
+    transition-duration: 0.5s;
+}
+
+.albumIcon img {
+    width: 60px;
+    margin: 5px 2px; 
+    border:1px solid white;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.photoContainer {
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+.photoContainer img {
+    max-width: 100%;
+}
+
+/* flip */
 
 /********************
 *   Mobile Styles   *
@@ -633,15 +887,15 @@ tr.pager td {
 
         #login a {
             background: none;
-            color: #999;
+            /*color: #999;*/
             font-weight: 600;
             margin: 2px;
             padding: 0;
         }
 
-        #login a:hover {
-            color: #333;
-        }
+            #login a:hover {
+                color: #333;
+            }
 
     /* menu */
     nav {
@@ -706,12 +960,12 @@ tr.pager td {
                 background: none;
             }
 
-     /* features */
-     section.feature {
+    /* features */
+    section.feature {
         float: none;
         padding: 10px;
         width: auto;
-     }
+    }
 
         section.feature img {
             color: #999;

@@ -1,11 +1,58 @@
 ﻿@if(Request.IsAuthenticated)
 {
-    <nav>
-        <ul id="menu">
-            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>@Html.ActionLink("Profile", "ViewProfile", "Home")</li>
-            <li>@Html.ActionLink("Albums", "Albums", "Home")</li>
-            <li>@Html.ActionLink("View users", "Users", "Home")</li>
-        </ul>
-    </nav>
+    <ul id="navMenu" class="block-menu">
+        <li>
+            <a href="@Url.Action("Index", "Home")" class="three-d">
+                <i class="fa fa-home fa-2x">&nbspHome</i>
+                <span aria-hidden="true" class="three-d-box">
+                    <span class="front">
+                        <i class="fa fa-home fa-2x">&nbspHome</i>
+                    </span>
+                    <span class="back">
+                        <i class="fa fa-home fa-2x">&nbspHome</i>
+                    </span>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("ViewProfile", "Home")" class="three-d">
+                <i class="fa fa-user fa-2x">&nbspProfile</i>
+                <span aria-hidden="true" class="three-d-box">
+                    <span class="front">
+                        <i class="fa fa-user fa-2x">&nbspProfile</i>
+                    </span>
+                    <span class="back">
+                        <i class="fa fa-user fa-2x">&nbspProfile</i>
+                    </span>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Albums", "Home")" class="three-d">
+                <i class="fa fa-camera fa-2x">&nbspAlbums</i>
+                <span aria-hidden="true" class="three-d-box">
+                    <span class="front">
+                        <i class="fa fa-camera fa-2x">&nbspAlbums</i>
+                    </span>
+                    <span class="back">
+                        <i class="fa fa-camera fa-2x">&nbspAlbums</i>
+                    </span>
+                </span>
+            </a>
+        </li>
+        <li>
+            <a href="@Url.Action("Users", "Home")" class="three-d">
+                <i class="fa fa-users fa-2x">&nbspInvaders</i>
+                <span aria-hidden="true" class="three-d-box">
+                    <span class="front">
+                        <i class="fa fa-users fa-2x">&nbspInvaders</i>
+                    </span>
+                    <span class="back">
+                        <i class="fa fa-users fa-2x">&nbspInvaders</i>
+                    </span>
+                </span>
+            </a>
+        </li>
+
+    </ul>
 }

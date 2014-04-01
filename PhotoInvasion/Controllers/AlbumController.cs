@@ -9,6 +9,10 @@ using PhotoInvasion.Filters;
 using PhotoInvasion.BLL;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+//using Microsoft.WindowsAzure.StorageClient;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 namespace PhotoInvasion.Controllers
 {
@@ -22,8 +26,8 @@ namespace PhotoInvasion.Controllers
         RatingsBLL _ratingsLogic = new RatingsBLL();
 
         private CloudStorageAccount storageAccount =
-           CloudStorageAccount.Parse(
-               "DefaultEndpointsProtocol=http;AccountName=storagetest;AccountKey=wLExFPdTfbZ4KTqB890l+gzIKNMTww6PeKpXhJ8LPVR7pwdgjft0Z1KaO5wjdqmtzS5R7Nrs4G1sxWqgkPGcFQ==;");
+            CloudStorageAccount.Parse(
+                "DefaultEndpointsProtocol=http;AccountName=storagetest;AccountKey=wLExFPdTfbZ4KTqB890l+gzIKNMTww6PeKpXhJ8LPVR7pwdgjft0Z1KaO5wjdqmtzS5R7Nrs4G1sxWqgkPGcFQ==;");
 
 
         //
@@ -76,7 +80,7 @@ namespace PhotoInvasion.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddPhoto(AddPhotoModel model, int? id)
+        public ActionResult AddPhoto(AddPhotoModel model, int? id)  //HttpPostedFileBase file
         {
 
             if (id == null)
@@ -88,6 +92,12 @@ namespace PhotoInvasion.Controllers
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
             container.CreateIfNotExists();
+            container.SetPermissions(
+                new BlobContainerPermissions
+                {
+                    PublicAccess = BlobContainerPublicAccessType.Blob
+                });
+
 
             var file = Request.Files["myfile"];
             string url = "";
@@ -97,7 +107,11 @@ namespace PhotoInvasion.Controllers
 
                 try
                 {
-                    blockBlob.UploadFromStream(file.InputStream);
+                    Stream stream = new MemoryStream();
+                    stream = VaryQualityLevel(file);
+                    stream.Seek(0, SeekOrigin.Begin);
+                    blockBlob.UploadFromStream(stream);
+                    //blockBlob.UploadFromStream(file.InputStream);
                     url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
                 }
                 catch (Exception)
@@ -127,6 +141,24 @@ namespace PhotoInvasion.Controllers
             return RedirectToAction("ViewAlbum", "Album", new { id = id.Value });
         }
 
+
+        //[HttpGet]
+        //public ActionResult UploadImagine(int? id)
+        //{
+
+        //    if (id == null)
+        //    {
+        //        return Content("No album selected!");
+        //    }
+
+        //    var model = new AddPhotoModel
+        //    {
+        //        CategoryOptions = _categoriesLogic.getCategories()
+        //    };
+
+        //    return View(model);
+
+        //}  
         public ActionResult ViewPhoto(int? id, string returnUrl)
         {
             if (id == null)
@@ -162,7 +194,7 @@ namespace PhotoInvasion.Controllers
             }
 
             _photosLogic.deletePhoto(id.Value);
-            return RedirectToAction("ViewAlbum", "Album", new { id = AlbumId.Value});
+            return RedirectToAction("ViewAlbum", "Album", new { id = AlbumId.Value });
         }
 
         public ActionResult RatePhoto(int id, int rating, string returnUrl)
@@ -175,7 +207,7 @@ namespace PhotoInvasion.Controllers
                 UserId = WebSecurity.CurrentUserId
             });
 
-            return RedirectToAction("ViewPhoto", "Album", new {id = id, returnUrl = returnUrl});
+            return RedirectToAction("ViewPhoto", "Album", new { id = id, returnUrl = returnUrl });
         }
 
         public ActionResult DeleteRating(int id, string returnUrl)
@@ -184,5 +216,50 @@ namespace PhotoInvasion.Controllers
 
             return RedirectToAction("ViewPhoto", "Album", new { id = id, returnUrl = returnUrl });
         }
+
+        private ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == format.Guid)
+                {
+                    return codec;
+                }
+            }
+            return null;
+        }
+        private MemoryStream VaryQualityLevel(HttpPostedFileBase file)
+        {
+            // Get a bitmap.
+            file = Request.Files["myfile"];
+            Stream s = Request.Files["myfile"].InputStream;
+            System.Drawing.Image img = System.Drawing.Image.FromStream(s);
+            Bitmap bmp1 = (Bitmap)img;
+            ImageCodecInfo jgpEncoder = GetEncoder(ImageFormat.Jpeg);
+
+            // Create an Encoder object based on the GUID 
+            // for the Quality parameter category.
+            System.Drawing.Imaging.Encoder myEncoder =
+                System.Drawing.Imaging.Encoder.Quality;
+
+            // Create an EncoderParameters object. 
+            // An EncoderParameters object has an array of EncoderParameter 
+            // objects. In this case, there is only one 
+            // EncoderParameter object in the array.
+            EncoderParameters myEncoderParameters = new EncoderParameters(1);
+
+            EncoderParameter myEncoderParameter = new EncoderParameter(myEncoder, 50L);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+
+            MemoryStream ms = new MemoryStream();
+            bmp1.Save(ms, jgpEncoder, myEncoderParameters);
+
+            return ms;
+
+        }
+
     }
 }

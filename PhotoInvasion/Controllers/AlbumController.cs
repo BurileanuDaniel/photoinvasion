@@ -111,11 +111,11 @@ namespace PhotoInvasion.Controllers
                     url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
                 }
                 catch (Exception e)
-                {
-                    return Content(e.StackTrace.ToString());
+                {                  
+                    return Content("Message: " + e.Message + " Trace: " + e.StackTrace.ToString() + " Data: " + e.Data.ToString());
                 }
             }
-
+            
             if (ModelState.IsValid)
             {
                 _photosLogic.addPhoto(

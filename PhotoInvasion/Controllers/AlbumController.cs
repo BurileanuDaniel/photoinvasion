@@ -105,13 +105,9 @@ namespace PhotoInvasion.Controllers
                     {
                         byte[] buffer = new byte[1048576 * 2];
                         buffer = WaterMark(stream);
-                        blockBlob.UploadFromByteArray(buffer, 0, buffer.Length);
+                        stream = new MemoryStream(buffer);
                     }
-                    else
-                    {
-                        blockBlob.UploadFromStream(stream);
-                    }
-                    //blockBlob.UploadFromStream(file.InputStream);
+                    blockBlob.UploadFromStream(stream);
                     url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
                 }
                 catch (Exception)

@@ -78,9 +78,10 @@ namespace PhotoInvasion.Controllers
             {
                 return Content("No album selected!");
             }
+
             if (model.WM.Equals("Watermark"))
             {
-                AddPhotoWithWaterMark(model, id);
+                AddPhotoWithWaterMark(model, a);
             }
             else
             {
@@ -116,33 +117,12 @@ namespace PhotoInvasion.Controllers
                     }
                 }
 
-
-
-<<<<<<< HEAD
-            if (ModelState.IsValid)
-            {
-                _photosLogic.addPhoto(
-                    new PhotoInvasion.DAL.Photo
-                    {
-                        AlbumId = a.Value,
-                        UserId = WebSecurity.CurrentUserId,
-                        //Source = model.Source,
-                        Source = url,
-                        Description = model.Description,
-                        CategoryId = model.CategoryId,
-                        Views = 0,
-                        Date = DateTime.Now
-                    });
-            }
-
-            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = a.Value });
-=======
                 if (ModelState.IsValid)
                 {
                     _photosLogic.addPhoto(
                         new PhotoInvasion.DAL.Photo
                         {
-                            AlbumId = id.Value,
+                            AlbumId = a.Value,
                             UserId = WebSecurity.CurrentUserId,
                             //Source = model.Source,
                             Source = url,
@@ -153,8 +133,8 @@ namespace PhotoInvasion.Controllers
                         });
                 }
             }
-            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = id.Value });
->>>>>>> e39ee79769b4819ad9596aaef91dcd8b5efd3670
+
+            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = a.Value });
         }
 
 

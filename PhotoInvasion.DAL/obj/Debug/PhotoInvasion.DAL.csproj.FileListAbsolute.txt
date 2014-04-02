@@ -24,6 +24,5 @@ E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.dll
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.dll
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.xml
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\bin\Debug\EntityFramework.SqlServer.xml
-E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.csprojResolveAssemblyReference.cache
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.dll
 E:\excite\PhotoInvasion\PhotoInvasion.DAL\obj\Debug\PhotoInvasion.DAL.pdb

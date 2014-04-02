@@ -4,108 +4,112 @@
     ViewBag.Title = "Home page";
 }
 
-<h1 id="nf">Newsfeed</h1>
-<div id="scrollToNewsFeed" style="top:50px;">Newsfeed</div>
-<div id="scrollToMostViewed" style="top:70px;">Most viewed</div>
-<div id="scrollToBestRated" style="top:90px;">Best rated</div>
+<div id="scrollToNewsFeed" style="bottom:80px;">Newsfeed</div>
+<div id="scrollToMostViewed" style="bottom:50px;">Most viewed</div>
+<div id="scrollToBestRated" style="bottom:20px;">Best rated</div>
 
-<div class="homePhotosContainer">
-    @foreach (var photo in Model.newsFeedPhotos)
-    {
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
-            <div class="imageWrapper">
-                <table>
-                    <tr>
-                        <td align="center" valign="middle">
-                            <img src="@photo.Source" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="photoDetails" align="right">
-                            <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
-                            <i class="fa fa-star"></i>&nbsp 
-                            @if (0 == photo.Rating.Count)
-                            {
-                                <span>none</span>
-                            }
-                            else
-                            {
-                                @photo.Rating.Average(r => r.Rating1)
-                            }
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </a>
-}
+<div id="nf">
+    <h1>Newsfeed</h1>
+    <div class="homePhotosContainer">
+        @foreach (var photo in Model.newsFeedPhotos)
+        {
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+                <div class="imageWrapper">
+                    <table>
+                        <tr>
+                            <td align="center" valign="middle">
+                                <img src="@photo.Source" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="photoDetails" align="right">
+                                <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
+                                <i class="fa fa-star"></i>&nbsp
+                                @if (0 == photo.Rating.Count)
+                                {
+                                    <span>none</span>
+                                }
+                                else
+                                {
+                                    @photo.Rating.Average(r => r.Rating1)
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        }
+    </div>
 </div>
 <hr />
 
-<h1 id="mv">Most Viewed</h1>
-
-<div class="homePhotosContainer">
-    @foreach (var photo in Model.mostViewedPhotos)
-    {
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
-            <div class="imageWrapper">
-                <table>
-                    <tr>
-                        <td align="center" valign="middle">
-                            <img src="@photo.Source" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="photoDetails" align="right">
-                            <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
-                            <i class="fa fa-star"></i>&nbsp
-                            @if (0 == photo.Rating.Count)
-                            {
-                                <span>none</span>
-                            }
-                            else
-                            {
-                                @photo.Rating.Average(r => r.Rating1)
-                            }
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </a>
-    }
+<div id="mv">
+    <h1>Most Viewed</h1>
+    <div class="homePhotosContainer">
+        @foreach (var photo in Model.mostViewedPhotos)
+        {
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+                <div class="imageWrapper">
+                    <table>
+                        <tr>
+                            <td align="center" valign="middle">
+                                <img src="@photo.Source" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="photoDetails" align="right">
+                                <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
+                                <i class="fa fa-star"></i>&nbsp
+                                @if (0 == photo.Rating.Count)
+                                {
+                                    <span>none</span>
+                                }
+                                else
+                                {
+                                    @photo.Rating.Average(r => r.Rating1)
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        }
+    </div>
 </div>
 <hr />
 
-<h1 id="br">Best Rated</h1>
-
-<div class="homePhotosContainer">
-    @foreach (var photo in Model.bestRatedPhotos)
-    {
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
-            <div class="imageWrapper">
-                <table>
-                    <tr>
-                        <td align="center" valign="middle">
-                            <img src="@photo.Source" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="photoDetails" align="right">
-                            <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
-                            <i class="fa fa-star"></i>&nbsp
-                            @if (0 == photo.Rating.Count)
-                            {
-                                <span>none</span>
-                            }
-                            else
-                            {
-                                @photo.Rating.Average(r => r.Rating1)
-                            }
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </a>
-    }
+<div id="br">
+    <h1>Best Rated</h1>
+    <div class="homePhotosContainer">
+        @foreach (var photo in Model.bestRatedPhotos)
+        {
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+                <div class="imageWrapper">
+                    <table>
+                        <tr>
+                            <td align="center" valign="middle">
+                                <img src="@photo.Source" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="photoDetails" align="right">
+                                <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
+                                <i class="fa fa-star"></i>&nbsp
+                                @if (0 == photo.Rating.Count)
+                                {
+                                    <span>none</span>
+                                }
+                                else
+                                {
+                                    @photo.Rating.Average(r => r.Rating1)
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        }
+    </div>
 </div>
-<div style="clear:both"></div>
-@Scripts.Render("~/Scripts/images.js")
+    <div style="clear:both"></div>
+    @Scripts.Render("~/Scripts/images.js")

@@ -937,7 +937,8 @@ span {
 
 #scrollToNewsFeed, #scrollToMostViewed, #scrollToBestRated {
     position: fixed;
-    left: 50px;
+    background-color: #bbb;
+    left: 20px;
     color:black;
     cursor:pointer;
     font-size: 1.25em;

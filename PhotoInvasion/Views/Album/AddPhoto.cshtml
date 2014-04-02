@@ -7,7 +7,7 @@
 
 <h1>Add new photo</h1>
 <div>
-    <a href="@Url.Action("ViewAlbum", "Album", new { id = ViewContext.RouteData.Values["id"] })"><i class="fa fa-arrow-circle-o-left fa-2x"></i>&nbspBack to album</a>
+    <a href="@Url.Action("ViewAlbum", "Album", new { id = WebSecurity.CurrentUserId, a = ViewContext.RouteData.Values["id"] })"><i class="fa fa-arrow-circle-o-left fa-2x"></i>&nbspBack to album</a>
 </div>
 
 <div class="alignCenter">

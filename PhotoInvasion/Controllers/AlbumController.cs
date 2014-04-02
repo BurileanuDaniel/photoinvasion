@@ -46,7 +46,7 @@ namespace PhotoInvasion.Controllers
             }
 
             ViewBag.viewerId = (null != id ) ? id.Value : -1;
-
+            ViewBag.albumId = a.Value;
             var model = _albumLogic.getAlbumDetails(a.Value);
 
             return View(model);
@@ -127,7 +127,7 @@ namespace PhotoInvasion.Controllers
                     });
             }
 
-            return RedirectToAction("ViewAlbum", "Album", new { id = id.Value });
+            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = id.Value });
         }
 
 
@@ -162,7 +162,7 @@ namespace PhotoInvasion.Controllers
             }
 
             _photosLogic.deletePhoto(id.Value);
-            return RedirectToAction("ViewAlbum", "Album", new { id = AlbumId.Value });
+            return RedirectToAction("ViewAlbum", "Album", new { id = WebSecurity.CurrentUserId, a = AlbumId.Value });
         }
 
         public ActionResult RatePhoto(int id, int rating, string returnUrl)

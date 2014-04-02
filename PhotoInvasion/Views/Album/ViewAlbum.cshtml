@@ -10,7 +10,7 @@
 <div class="alignCenter">
     @if (ViewBag.viewerId == -1 || ViewBag.viewerId == WebSecurity.CurrentUserId)
     {
-        <a class="addButton" href="@Url.Action("AddPhoto", "Album", new { Id = ViewContext.RouteData.Values["id"] })"><i class="fa fa-plus fa-2x"></i>&nbspAdd photo</a>        
+        <a class="addButton" href="@Url.Action("AddPhoto", "Album", new { Id = ViewBag.albumId },null)"><i class="fa fa-plus fa-2x"></i>&nbspAdd photo</a>        
         <br />
     }
     

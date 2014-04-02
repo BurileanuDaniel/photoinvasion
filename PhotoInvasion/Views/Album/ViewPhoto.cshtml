@@ -58,7 +58,7 @@
                 <i class="fa fa-star fa-3x"></i>
             }
         </div>
-        <a href="@Url.Action("DeleteRating", "Album", new { id = @Model.photo.Id, returnUrl = @Model.returnUrl }, null)"><button>Remove rating</button></a>
+        <a href="@Url.Action("DeleteRating", "Album", new { id = WebSecurity.CurrentUserId, p = @Model.photo.Id, returnUrl = @Model.returnUrl }, null)"><button>Remove rating</button></a>
     }
 </div>
 @Scripts.Render("~/Scripts/viewPhoto.js")

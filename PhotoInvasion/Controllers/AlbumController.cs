@@ -192,11 +192,11 @@ namespace PhotoInvasion.Controllers
             return RedirectToAction("ViewPhoto", "Album", new { id = id, p = p, returnUrl = returnUrl });
         }
 
-        public ActionResult DeleteRating(int id, string returnUrl)
+        public ActionResult DeleteRating(int id, int p, string returnUrl)
         {
-            _ratingsLogic.deleteRating(id, WebSecurity.CurrentUserId);
+            _ratingsLogic.deleteRating(p, WebSecurity.CurrentUserId);
 
-            return RedirectToAction("ViewPhoto", "Album", new { id = id, returnUrl = returnUrl });
+            return RedirectToAction("ViewPhoto", "Album", new { id = id, p = p, returnUrl = returnUrl });
         }
 
         private ImageCodecInfo GetEncoder(ImageFormat format)

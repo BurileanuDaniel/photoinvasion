@@ -48,6 +48,7 @@ namespace PhotoInvasion.Controllers
         }
         public ActionResult Albums(int? id)
         {
+            ViewBag.access = true;
             if (!Roles.GetRolesForUser().Contains("Photographer"))
             {
                

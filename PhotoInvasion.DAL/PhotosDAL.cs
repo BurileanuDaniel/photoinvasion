@@ -63,8 +63,8 @@ namespace PhotoInvasion.DAL
         public List<PhotoInvasion.DAL.Photo> getNewsfeed()
         {
             return _entities.Photo
-                            .OrderByDescending(p => p.Date)
-                            .Take(10)
+                            .OrderByDescending(p => p.Id)
+                            .Take(28)
                             .ToList();
         }
 
@@ -72,7 +72,7 @@ namespace PhotoInvasion.DAL
         {
             return _entities.Photo
                         .OrderByDescending(p => p.Views)
-                        .Take(10)
+                        .Take(28)
                         .ToList();
         }
 
@@ -80,14 +80,14 @@ namespace PhotoInvasion.DAL
         {
             return _entities.Photo
                         .OrderByDescending(p => p.Rating.Average(r => r.Rating1))
-                        .Take(10)
+                        .Take(28)
                         .ToList();
         }
 
         public List<PhotoInvasion.DAL.Photo> getRecentActivity(int userId)
         {
             return _entities.Photo
-                        .OrderByDescending(p => p.Date)
+                        .OrderByDescending(p => p.Id)
                         .Where(p => p.UserId == userId)
                         .Take(5)
                         .ToList();

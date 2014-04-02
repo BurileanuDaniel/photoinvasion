@@ -4,7 +4,10 @@
     ViewBag.Title = "Home page";
 }
 
-<h1>Newsfeed</h1>
+<h1 id="nf">Newsfeed</h1>
+<div id="scrollToNewsFeed" style="top:50px;">Newsfeed</div>
+<div id="scrollToMostViewed" style="top:70px;">Most viewed</div>
+<div id="scrollToBestRated" style="top:90px;">Best rated</div>
 
 <div class="homePhotosContainer">
     @foreach (var photo in Model.newsFeedPhotos)
@@ -38,7 +41,7 @@
 </div>
 <hr />
 
-<h1>Most Viewed</h1>
+<h1 id="mv">Most Viewed</h1>
 
 <div class="homePhotosContainer">
     @foreach (var photo in Model.mostViewedPhotos)
@@ -72,7 +75,7 @@
 </div>
 <hr />
 
-<h1>Best Rated</h1>
+<h1 id="br">Best Rated</h1>
 
 <div class="homePhotosContainer">
     @foreach (var photo in Model.bestRatedPhotos)

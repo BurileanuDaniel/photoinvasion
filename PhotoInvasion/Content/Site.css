@@ -935,6 +935,15 @@ span {
     font-family:'Buxton Sketch';
 }
 
+#scrollToNewsFeed, #scrollToMostViewed, #scrollToBestRated {
+    position: fixed;
+    left: 50px;
+    color:black;
+    cursor:pointer;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
 /********************
 *   Mobile Styles   *
 ********************/

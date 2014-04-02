@@ -1,5 +1,17 @@
 ﻿$(document).ready(function () {
     scaleImageWrappers();
+
+    $('#scrollToNewsFeed').click(function () {
+        $(window).scrollTop($("#nf").offset().top);
+    });
+    $('#scrollToMostViewed').click(function () {
+        $(window).scrollTop($("#mv").offset().top);
+    });
+    $('#scrollToBestRated').click(function () {
+        $(window).scrollTop($("#br").offset().top);
+    });
+
+
 });
 
 $(window).load(function () {

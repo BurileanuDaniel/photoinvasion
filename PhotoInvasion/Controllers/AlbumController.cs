@@ -116,7 +116,7 @@ namespace PhotoInvasion.Controllers
                 }
                 catch (Exception)
                 {
-                    status = "Upload nereusit";
+                    return Content("Upload failed");
                 }
             }
 

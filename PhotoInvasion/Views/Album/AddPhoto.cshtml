@@ -52,6 +52,7 @@
 
             <div class="editor-field">
                 @Html.DropDownListFor(m => m.WM, new SelectList(listItems), "-- Add Watermark --")
+                @Html.ValidationMessageFor(model => model.WM)
             </div>
 
             <p>

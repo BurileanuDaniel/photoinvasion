@@ -270,7 +270,7 @@ namespace PhotoInvasion.Controllers
 
                 try
                 {
-                    Stream stream = new MemoryStream();
+                    MemoryStream stream = new MemoryStream();
                     stream = VaryQualityLevel(file);
                     stream.Seek(0, SeekOrigin.Begin);
                     byte[] buffer = new byte[1048576 * 2];

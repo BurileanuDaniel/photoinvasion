@@ -247,7 +247,7 @@ namespace PhotoInvasion.Controllers
             MemoryStream str = new MemoryStream();
             System.Web.Helpers.WebImage webimg = new System.Web.Helpers.WebImage(s);
             String wm = WebSecurity.CurrentUserName;
-            webimg.AddTextWatermark(wm, "White", 16, "Regular", "Lucida Calligraphy", "Right", "Bottom", 50, 10);
+            webimg.AddTextWatermark(wm, "White", 16, "Regular", "Microsoft Sans Serif", "Right", "Bottom", 50, 10);
 
             return webimg.GetBytes();
         }

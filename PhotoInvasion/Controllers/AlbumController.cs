@@ -38,31 +38,24 @@ namespace PhotoInvasion.Controllers
             return View();
         }
 
-        /*
-         * @param: id - Id of the selected album.
-         * 
-         * */
-        public ActionResult ViewAlbum(int? id)
+        public ActionResult ViewAlbum(int? id, int? a)
         {
             //if (User.Identity.IsAuthenticated == false)
             //{
             //    return Content("User must be authenitcated");
             //}
-
-            if (id == null)
+            if (a == null)
             {
                 return Content("No album to display.");
             }
 
-            var model = _albumLogic.getAlbumDetails(id.Value);
+            ViewBag.viewerId = (null != id ) ? id.Value : -1;
+
+            var model = _albumLogic.getAlbumDetails(a.Value);
 
             return View(model);
         }
 
-        /*
-         * @param: id - Id of the album that will contain the added photo.
-         * 
-         * */
         [HttpGet]
         public ActionResult AddPhoto(int? id)
         {
@@ -182,10 +175,6 @@ namespace PhotoInvasion.Controllers
             }
         }
 
-        /*
-         *  @param: id - Id of the deleted photo. 
-         * 
-         * */
         public ActionResult DeletePhoto(int? id, int? AlbumId)
         {
             if (id == null)

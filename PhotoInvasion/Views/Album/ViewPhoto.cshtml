@@ -11,6 +11,12 @@
         <img src="@Model.photo.Source" />
     </div>
     <p>
+        <a href="@Url.Action("ViewProfile", "Home", new { id = @Model.photo.UserId})">
+            <span class="label">User</span>
+            <span>@Model.photo.UserProfile.LastName @Model.photo.UserProfile.FirstName</span>
+        </a>
+    </p>
+    <p>
         <span class="label">Description</span>
         <span>@Model.photo.Description</span>
     </p>

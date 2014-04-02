@@ -21,6 +21,7 @@ E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.WebPages.Razor.
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\EntityFramework.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\System.Web.Optimization.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.BLL.dll
+E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\PhotoInvasion.DAL.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.Web.WebPages.OAuth.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\DotNetOpenAuth.AspNet.dll
@@ -84,4 +85,3 @@ E:\excite\PhotoInvasion\PhotoInvasion.Tests\bin\Debug\zh-Hant\System.Spatial.res
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\obj\Debug\PhotoInvasion.Tests.csprojResolveAssemblyReference.cache
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\obj\Debug\PhotoInvasion.Tests.dll
 E:\excite\PhotoInvasion\PhotoInvasion.Tests\obj\Debug\PhotoInvasion.Tests.pdb
-E:\excite\photoinvasion\PhotoInvasion.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.dll

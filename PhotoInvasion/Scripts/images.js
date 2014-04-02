@@ -29,7 +29,7 @@ function scaleImages(size) {
             currentImage.css('width', size);
         }
         else {
-            currentImage.css('height', size);
+            currentImage.css('height', (parseInt(size) - 90) + 'px');
         }
 
     });

@@ -31,6 +31,7 @@
             <span class="label">City:</span>
             <span>@Model.userProfile.City</span>
         </p>
+    </section>
 </div>
 <br />
 <br />
@@ -61,36 +62,5 @@
         <h3>No activity</h3>
     }
 </div>
-@*<div style="border:5px groove grey; width: 200px;display:inline-block;padding:5px">
-        <p>
-            <span class="label">User:</span>
-            <span>@photo.UserProfile.LastName @photo.UserProfile.FirstName</span>
-        </p>
-        <p>
-            <span class="label">Category</span>
-            <span>@photo.Category.Name</span>
-        </p>
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)"><img src="@photo.Source" style="width: 150px" /></a>
-        <p>
-            <span class="label">Rating:</span>
-            @if (@photo.Rating.Count() == 0)
-            {
-                <span>None</span>
-            }
-            else
-            {
-                <span>@photo.Rating.Average(r => r.Rating1)</span>
-            }
-        </p>
-        <p>
-            <span class="label">Description:</span>
-            <span>@photo.Description</span>
-        </p>
-        <p>
-            <span class="label">Date:</span>
-            <span>@photo.Date</span>
-        </p>
-    </div>*@
-</section>
 
 @Scripts.Render("~/Scripts/images.js")

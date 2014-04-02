@@ -10,7 +10,7 @@
     <br />
     @foreach (var item in Model)
     {
-        <a href="@Url.Action("ViewAlbum", "Album", new { id = @item.Id })">
+        <a href="@Url.Action("ViewAlbum", "Album", new { id = ViewContext.RouteData.Values["id"], a = @item.Id, })">
             <div class="albumIcon">
                 <p>
                     <h2>@item.Name</h2><br />
@@ -30,7 +30,10 @@
         </a>
     }
     <br /><br />
-    <a class="addButton" href="@Url.Action("AddAlbum", "Home")"><i class="fa fa-plus fa-3x"></i></a>
+    @if (null == ViewContext.RouteData.Values["id"] || (null != ViewContext.RouteData.Values["id"] && int.Parse(ViewContext.RouteData.Values["id"].ToString()) == WebSecurity.CurrentUserId))
+    {
+        <a class="addButton" href="@Url.Action("AddAlbum", "Home")"><i class="fa fa-plus fa-3x"></i></a>        
+    }
 
 </div>
 

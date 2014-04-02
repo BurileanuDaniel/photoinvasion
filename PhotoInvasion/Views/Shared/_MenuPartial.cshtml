@@ -1,5 +1,7 @@
 ﻿@if(Request.IsAuthenticated)
 {
+    var val = new { id = (null != ViewContext.RouteData.Values["id"] ? int.Parse(ViewContext.RouteData.Values["id"].ToString()) :  WebSecurity.CurrentUserId) };
+    
     <ul id="navMenu" class="block-menu">
         <li>
             <a href="@Url.Action("Index", "Home")" class="three-d">
@@ -15,7 +17,7 @@
             </a>
         </li>
         <li>
-            <a href="@Url.Action("ViewProfile", "Home")" class="three-d">
+            <a href="@Url.Action("ViewProfile", "Home", @val)" class="three-d">
                 <i class="fa fa-user fa-2x">&nbspProfile</i>
                 <span aria-hidden="true" class="three-d-box">
                     <span class="front">
@@ -28,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a href="@Url.Action("Albums", "Home")" class="three-d">
+            <a href="@Url.Action("Albums", "Home", @val)" class="three-d">
                 <i class="fa fa-camera fa-2x">&nbspAlbums</i>
                 <span aria-hidden="true" class="three-d-box">
                     <span class="front">

@@ -4,14 +4,22 @@
     ViewBag.Title = "Home Page";
 }
 
+<h1>Photo invaders</h1>
 
-@foreach (var item in Model)
-{
-    <div>
-        <p>@item.UserId @item.UserName</p>
-        <p>@item.LastName @item.FirstName</p>
-        <p>@item.City</p>
-        <p>@item.Description</p>
-        <hr />
-    </div>
-}
+<div id="usersContainer" class="alignCenter">
+    <ul id="usersList">
+        @foreach (var item in Model)
+        {
+            <a href="@Url.Action("ViewProfile", "Home", new { Id = @item.UserId })">
+                <li class="userContainer">
+                    <span class="label">Name:</span>
+                    <span>@item.LastName @item.FirstName</span><br />
+                    <span class="label">City</span>
+                    <span>@item.City</span><br />
+                    <span class="label">Description</span>
+                    <span>@item.Description</span>
+                </li>
+            </a>
+        }
+    </ul>
+</div>

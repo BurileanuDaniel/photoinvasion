@@ -17,6 +17,20 @@
                             <img src="@photo.Source" />
                         </td>
                     </tr>
+                    <tr>
+                        <td class="photoDetails" align="right">
+                            <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
+                            <i class="fa fa-star"></i>&nbsp 
+                            @if (0 == photo.Rating.Count)
+                            {
+                                <span>none</span>
+                            }
+                            else
+                            {
+                                @photo.Rating.Average(r => r.Rating1)
+                            }
+                        </td>
+                    </tr>
                 </table>
             </div>
         </a>
@@ -37,6 +51,20 @@
                             <img src="@photo.Source" />
                         </td>
                     </tr>
+                    <tr>
+                        <td class="photoDetails" align="right">
+                            <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
+                            <i class="fa fa-star"></i>&nbsp
+                            @if (0 == photo.Rating.Count)
+                            {
+                                <span>none</span>
+                            }
+                            else
+                            {
+                                @photo.Rating.Average(r => r.Rating1)
+                            }
+                        </td>
+                    </tr>
                 </table>
             </div>
         </a>
@@ -55,6 +83,20 @@
                     <tr>
                         <td align="center" valign="middle">
                             <img src="@photo.Source" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="photoDetails" align="right">
+                            <i class="fa fa-eye"></i>&nbsp @photo.Views&nbsp&nbsp
+                            <i class="fa fa-star"></i>&nbsp
+                            @if (0 == photo.Rating.Count)
+                            {
+                                <span>none</span>
+                            }
+                            else
+                            {
+                                @photo.Rating.Average(r => r.Rating1)
+                            }
                         </td>
                     </tr>
                 </table>

@@ -5,41 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View Photo</h2>
-<img src="@Model.photo.Source" />
-<p>
-    <span class="label">Description</span>
-    <span>@Model.photo.Description</span>
-</p>
-<p>
-    <span class="label">Category</span>
-    <span>@Model.photo.Category.Name</span>
-</p>
-
-
-
-@if (@Model.rating == -1)
-{
-    <div id="ratePhoto">
-    <a class="rateButton" href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 1, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 2, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 3, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 4, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-    <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 5, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+<a class="addButton" href="@Model.returnUrl"><i class="fa fa-arrow-circle-o-left fa-2x"></i>Back</a>
+<div class="alignCenter">
+    <div class="photoContainer">
+        <img src="@Model.photo.Source" />
     </div>
-}
-else
-{
-    <div id="ratePhoto">
-    @for (int i = 0; i < Model.rating; ++i)
+    <p>
+        <a href="@Url.Action("ViewProfile", "Home", new { id = @Model.photo.UserId})">
+            <span class="label">User</span>
+            <span>@Model.photo.UserProfile.LastName @Model.photo.UserProfile.FirstName</span>
+        </a>
+    </p>
+    <p>
+        <span class="label">Description</span>
+        <span>@Model.photo.Description</span>
+    </p>
+    <p>
+        <span class="label">Category</span>
+        <span>@Model.photo.Category.Name</span>
+    </p>
+    <p>
+        <span class="label">Average rating</span>
+        @if(Model.photo.Rating.Count != 0)
+        {
+            <span>@Model.photo.Rating.Average(r => r.Rating1)</span>
+        }
+        else
+        {
+            <span>None</span>
+        }
+    </p>
+
+    <span class="label">Your rating</span>
+    @if (@Model.rating == -1)
     {
-        <i class="fa fa-star fa-3x"></i>
+        <div id="ratePhoto">
+            <a class="rateButton" href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 1, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 2, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 3, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 4, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 5, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+        </div>
     }
-    </div>
-    <a href="@Url.Action("DeleteRating", "Album", new { id = @Model.photo.Id, returnUrl = @Model.returnUrl }, null)">Delete rating</a>
-}
+    else
+    {
+        <div id="ratePhoto">
+            @for (int i = 0; i < Model.rating; ++i)
+            {
+                <i class="fa fa-star fa-3x"></i>
+            }
+        </div>
+        <a href="@Url.Action("DeleteRating", "Album", new { id = @Model.photo.Id, returnUrl = @Model.returnUrl }, null)"><button>Remove rating</button></a>
+    }
 
-<hr />
-<a href="@Model.returnUrl">Back</a>
-
+</div>
 @Scripts.Render("~/Scripts/viewPhoto.js")

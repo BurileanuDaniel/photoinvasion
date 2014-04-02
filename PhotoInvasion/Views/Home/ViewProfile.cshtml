@@ -4,69 +4,63 @@
     ViewBag.Title = "Profile";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+<div class="alignCenter">
+    <h1>@ViewBag.Title</h1>
     <h2>@ViewBag.Message</h2>
-</hgroup>
 
-<section class="contact">
-    <header>
-        <h3>Personal details</h3>
-    </header>
-    <p>
-        <span class="label">Name:</span>
-        <span>@Model.userProfile.LastName @Model.userProfile.FirstName</span>
-    </p>
-    <p>
-        <span class="label">Email:</span>
-        <span>@Model.userProfile.Email</span>
-    </p>
-    <header>
-        <h3>Description</h3>
-    </header>
-    <p>
-        <span class="label">About me:</span>
-        <span>@Model.userProfile.Description</span>
-    </p>
-    <p>
-        <span class="label">City:</span>
-        <span>@Model.userProfile.City</span>
-    </p>
+    <section class="contact">
+        <header>
+            <h3>Personal details</h3>
+        </header>
+        <p>
+            <span class="label">Name:</span>
+            <span>@Model.userProfile.LastName @Model.userProfile.FirstName</span>
+        </p>
+        <p>
+            <span class="label">Email:</span>
+            <span>@Model.userProfile.Email</span>
+        </p>
+        <header>
+            <h3>Description</h3>
+        </header>
+        <p>
+            <span class="label">About me:</span>
+            <span>@Model.userProfile.Description</span>
+        </p>
+        <p>
+            <span class="label">City:</span>
+            <span>@Model.userProfile.City</span>
+        </p>
+    </section>
+</div>
+<br />
+<br />
 
-    <hr/>
+<hr />
+<div class="alignCenter">
     <h2>Recent Activity</h2>
-
-    @foreach (var photo in Model.recentActivity)
+    <br />
+    @if (Model.recentActivity.Count != 0)
     {
-<div style="border:5px groove grey; width: 200px;display:inline-block;padding:5px">
-        <p>
-            <span class="label">User:</span>
-            <span>@photo.UserProfile.LastName @photo.UserProfile.FirstName</span>
-        </p>
-        <p>
-            <span class="label">Category</span>
-            <span>@photo.Category.Name</span>
-        </p>
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)"><img src="@photo.Source" style="width: 150px" /></a>
-        <p>
-            <span class="label">Rating:</span>
-            @if (@photo.Rating.Count() == 0)
-            {
-                <span>None</span>
-            }
-            else
-            {
-                <span>@photo.Rating.Average(r => r.Rating1)</span>
-            }
-        </p>
-        <p>
-            <span class="label">Description:</span>
-            <span>@photo.Description</span>
-        </p>
-        <p>
-            <span class="label">Date:</span>
-            <span>@photo.Date</span>
-        </p>
-    </div>
+        foreach (var photo in Model.recentActivity)
+        {
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+                <div class="imageWrapper">
+                    <table>
+                        <tr>
+                            <td align="center" valign="middle">
+                                <img src="@photo.Source" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        }
     }
-</section>
+    else
+    {
+        <h3>No activity</h3>
+    }
+</div>
+
+@Scripts.Render("~/Scripts/images.js")

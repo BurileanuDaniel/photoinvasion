@@ -5,22 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Albums</h2>
-<a href="@Url.Action("AddAlbum", "Home")">Add new album</a>
-@foreach(var item in Model)
-{
-    <div>
-        <p>
-            <span class="label">Album name:</span>
-            <span>@item.Name</span><br />
-        </p>
-        <p>
-            <span class="label">Date created:</span>
-            <span>@item.Date</span>
-        </p>
-        <p>
-            @Html.ActionLink("View photos", "ViewAlbum", "Album", new { id = @item.Id }, null)
-        </p>
-        <hr />
-    </div>
-}
+<div class="alignCenter">
+    <h1>Albums</h1>
+    <br />
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("ViewAlbum", "Album", new { id = ViewContext.RouteData.Values["id"], a = @item.Id, })">
+            <div class="albumIcon">
+                <p>
+                    <h2>@item.Name</h2><br />
+                    <hr />
+                    <span class="label">Preview:</span><br />
+                    @foreach (var photo in item.Photo.Take(3).ToList())
+                    {
+                        <img src="@photo.Source" />
+                    }
+
+                </p>
+                <p>
+                    <span class="label">Date created:</span>
+                    <span>@item.Date</span>
+                </p>
+            </div>
+        </a>
+    }
+    <br /><br />
+    @if (null == ViewContext.RouteData.Values["id"] || (null != ViewContext.RouteData.Values["id"] && int.Parse(ViewContext.RouteData.Values["id"].ToString()) == WebSecurity.CurrentUserId))
+    {
+        <a class="addButton" href="@Url.Action("AddAlbum", "Home")"><i class="fa fa-plus fa-3x"></i></a>        
+    }
+
+</div>
+

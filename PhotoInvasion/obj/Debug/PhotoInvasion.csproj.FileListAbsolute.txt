@@ -90,6 +90,12 @@ C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\zh-Hant\System.Spat
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\obj\Debug\PhotoInvasion.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\obj\Debug\PhotoInvasion.dll
 C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\obj\Debug\PhotoInvasion.pdb
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.CloudDrive.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.StorageClient.dll
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.CloudDrive.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.StorageClient.xml
 E:\excite\PhotoInvasion\PhotoInvasion\bin\PhotoInvasion.dll.config
 E:\excite\PhotoInvasion\PhotoInvasion\bin\PhotoInvasion.dll
 E:\excite\PhotoInvasion\PhotoInvasion\bin\PhotoInvasion.pdb
@@ -182,9 +188,3 @@ E:\excite\PhotoInvasion\PhotoInvasion\bin\zh-Hant\System.Spatial.resources.dll
 E:\excite\PhotoInvasion\PhotoInvasion\obj\Debug\PhotoInvasion.csprojResolveAssemblyReference.cache
 E:\excite\PhotoInvasion\PhotoInvasion\obj\Debug\PhotoInvasion.dll
 E:\excite\PhotoInvasion\PhotoInvasion\obj\Debug\PhotoInvasion.pdb
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.CloudDrive.dll
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.Storage.dll
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.StorageClient.dll
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.CloudDrive.xml
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.Storage.xml
-C:\Users\HP\Documents\GitHub\photoinvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.StorageClient.xml

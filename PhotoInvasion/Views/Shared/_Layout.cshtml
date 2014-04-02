@@ -5,17 +5,16 @@
         <title>PhotoInvasion - @ViewBag.Title</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
-        @*@Styles.Render("~/Content/bootstrap/css")*@
-        @Styles.Render("~/Content/font-awesome/css")
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Scripts/prefixfree.min.js")
     </head>
     <body>
         <header>
-            <div class="content-wrapper">
+            <div class="content-wrapper effect">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <a href="@Url.Action("Index", "Home")"><img id="logo" src="~/Images/logo.png"/><p class="site-title">Photo Invasion</p></a>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -27,15 +26,13 @@
         </header>
         <div id="body">
             @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
+            <section class="content-wrapper main-content effect clear-fix">
                 @RenderBody()
             </section>
         </div>
         <footer>
             <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
+                    <p id="footerText">&copy; @DateTime.Now.Year - Photo Invasion</p>
             </div>
         </footer>
 

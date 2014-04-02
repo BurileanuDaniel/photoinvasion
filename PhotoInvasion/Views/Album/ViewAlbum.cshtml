@@ -5,30 +5,48 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
-@Html.ActionLink("Back to albums", "Albums", "Home", new { Id = @Model.UserId }, null)
-@Html.ActionLink("Add photo", "AddPhoto", "Album", new { Id = @Model.Id }, null)
-@if (Model.Photo.Count == 0)
-{
-    <p>No photos in this album.</p>
-}
-else
-{
-    foreach (var photo in Model.Photo)
+<a class="addButton" href="@Url.Action("Albums", "Home", new { Id = @Model.UserId })"><i class="fa fa-arrow-circle-o-left fa-2x"></i>&nbspBack to albums</a>
+<h1>@Model.Name</h1><br />
+<div class="alignCenter">
+    @if (ViewBag.viewerId == -1 || ViewBag.viewerId == WebSecurity.CurrentUserId)
     {
-        <div>
-            <p>
-                <span class="label">Category</span>
-                <span>@photo.Category.Name</span>
-            </p>
-            <p>
-                <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)"><img src="@photo.Source" /></a>
-                @Html.ActionLink("Delete", "DeletePhoto", "Album", new { Id = @photo.Id, AlbumId = @photo.AlbumId }, null)
-            </p>
-            <p>
-                <span class="label">Description</span>
-                <span>@photo.Description</span>
-            </p>
-        </div>
+        <a class="addButton" href="@Url.Action("AddPhoto", "Album", new { Id = ViewBag.albumId },null)"><i class="fa fa-plus fa-2x"></i>&nbspAdd photo</a>        
+        <br />
     }
-}
+    
+    @if (Model.Photo.Count == 0)
+    {
+        <p>No photos in this album.</p>
+    }
+    else
+    {
+        foreach (var photo in Model.Photo)
+        {
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+                <div class="albumPhoto">
+                    <table>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <img src="@photo.Source" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <span class="label">Category</span>
+                                <span>@photo.Category.Name</span><br />
+                                <span class="label">Description</span>
+                                <span>@photo.Description</span>
+                            </td>
+                            <td align="right" valign="top">
+                                @if (ViewBag.viewerId == -1 || ViewBag.viewerId == WebSecurity.CurrentUserId)
+                                {
+                                    <a href="@Url.Action("DeletePhoto", "Album", new { Id = @photo.Id, AlbumId = @photo.AlbumId })"><i class="fa fa-times fa-3x"></i></a>                                    
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </a>
+        }
+    }
+</div>

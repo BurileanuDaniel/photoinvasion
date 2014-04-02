@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "Register";
 }
-
+@{
+    var listItems = new List<System.Web.UI.WebControls.ListItem> { new System.Web.UI.WebControls.ListItem { Text = "Photographer", Value = "Photographer" }, new System.Web.UI.WebControls.ListItem { Text = "Viewer", Value = "Viewer" } };
+}
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>Associate your @ViewBag.ProviderDisplayName account.</h2>
@@ -20,6 +22,10 @@
             logging in.
         </p>
         <ol>
+            <li>
+                @Html.LabelFor(m => m.status)
+                @Html.DropDownListFor(m => m.status, new SelectList(listItems), "-- Select Role --")
+            </li>
             <li class="name">
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)

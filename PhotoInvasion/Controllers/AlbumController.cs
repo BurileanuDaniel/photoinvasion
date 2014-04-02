@@ -38,31 +38,20 @@ namespace PhotoInvasion.Controllers
             return View();
         }
 
-        /*
-         * @param: id - Id of the selected album.
-         * 
-         * */
-        public ActionResult ViewAlbum(int? id)
+        public ActionResult ViewAlbum(int? id, int? a)
         {
-            //if (User.Identity.IsAuthenticated == false)
-            //{
-            //    return Content("User must be authenitcated");
-            //}
-
-            if (id == null)
+            if (a == null)
             {
                 return Content("No album to display.");
             }
 
-            var model = _albumLogic.getAlbumDetails(id.Value);
+            ViewBag.viewerId = (null != id ) ? id.Value : -1;
+            ViewBag.albumId = a.Value;
+            var model = _albumLogic.getAlbumDetails(a.Value);
 
             return View(model);
         }
 
-        /*
-         * @param: id - Id of the album that will contain the added photo.
-         * 
-         * */
         [HttpGet]
         public ActionResult AddPhoto(int? id)
         {
@@ -138,27 +127,10 @@ namespace PhotoInvasion.Controllers
                     });
             }
 
-            return RedirectToAction("ViewAlbum", "Album", new { id = id.Value });
+            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = id.Value });
         }
 
 
-        //[HttpGet]
-        //public ActionResult UploadImagine(int? id)
-        //{
-
-        //    if (id == null)
-        //    {
-        //        return Content("No album selected!");
-        //    }
-
-        //    var model = new AddPhotoModel
-        //    {
-        //        CategoryOptions = _categoriesLogic.getCategories()
-        //    };
-
-        //    return View(model);
-
-        //}  
         public ActionResult ViewPhoto(int? id, string returnUrl)
         {
             if (id == null)
@@ -182,10 +154,6 @@ namespace PhotoInvasion.Controllers
             }
         }
 
-        /*
-         *  @param: id - Id of the deleted photo. 
-         * 
-         * */
         public ActionResult DeletePhoto(int? id, int? AlbumId)
         {
             if (id == null)
@@ -194,7 +162,7 @@ namespace PhotoInvasion.Controllers
             }
 
             _photosLogic.deletePhoto(id.Value);
-            return RedirectToAction("ViewAlbum", "Album", new { id = AlbumId.Value });
+            return RedirectToAction("ViewAlbum", "Album", new { id = WebSecurity.CurrentUserId, a = AlbumId.Value });
         }
 
         public ActionResult RatePhoto(int id, int rating, string returnUrl)

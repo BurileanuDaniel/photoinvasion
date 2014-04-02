@@ -1,7 +1,7 @@
 ﻿@if(Request.IsAuthenticated)
 {
     var val = new { id = (null != ViewContext.RouteData.Values["id"] ? int.Parse(ViewContext.RouteData.Values["id"].ToString()) :  WebSecurity.CurrentUserId) };
-    
+   
     <ul id="navMenu" class="block-menu">
         <li>
             <a href="@Url.Action("Index", "Home")" class="three-d">

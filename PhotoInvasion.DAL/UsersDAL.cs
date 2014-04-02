@@ -20,7 +20,14 @@ namespace PhotoInvasion.DAL
 
         public List<UserProfile> getUserProfiles()
         {
-            return _entities.UserProfile.ToList();
+            var result = from user in _entities.UserProfile 
+                         join roles in _entities.webpages_UsersInRoles
+                            on user.UserId equals roles.UserId
+                         where roles.RoleId == 1
+                         select user;
+
+            return result.ToList();
+            //return _entities.UserProfile.ToList();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using PhotoInvasion.BLL;
 using WebMatrix.WebData;
 using PhotoInvasion.Filters;
+using System.Web.Security;
 
 
 namespace PhotoInvasion.Controllers
@@ -45,9 +46,20 @@ namespace PhotoInvasion.Controllers
 
             return View(model);
         }
-
         public ActionResult Albums(int? id)
         {
+            if (!Roles.GetRolesForUser().Contains("Photographer"))
+            {
+               
+                if (id.Value == WebSecurity.CurrentUserId)
+                {
+                    ViewBag.access = false;
+                }
+                else
+                {
+                    ViewBag.access = true;
+                }
+            }
             var userId = (id == null) ? (WebSecurity.CurrentUserId) : (id.Value);
             var model = _albumsLogic.getAlbums(userId);
             

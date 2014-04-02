@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (!ViewBag.access) 
+{
+    <h3>You are not authorized as a photographer.</h3>
+}
+else
+{
 <div class="alignCenter">
     <h1>Albums</h1>
     <br />
@@ -37,3 +43,5 @@
 
 </div>
 
+    
+}

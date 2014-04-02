@@ -636,7 +636,6 @@ tr.pager td {
 }
 
 .homePhotosContainer {
-    float: left;
     width: 100%;
     margin: 20px 0;
     text-align: center;
@@ -938,7 +937,7 @@ span {
 #scrollToNewsFeed, #scrollToMostViewed, #scrollToBestRated {
     position: fixed;
     background-color: #bbb;
-    left: 20px;
+    left: 15px;
     color:black;
     cursor:pointer;
     font-size: 1.25em;

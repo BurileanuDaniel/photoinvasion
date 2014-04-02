@@ -18,6 +18,9 @@ namespace PhotoInvasion.Models
 
         [Display(Name = "Description")]
         public string Description { get; set; }
+        
+        [Display(Name = "Watemark")]
+        public string WM { get; set; }
 
         public IEnumerable<PhotoInvasion.DAL.Category> CategoryOptions;
     }

@@ -13,6 +13,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Drawing;
+using System.Web.Helpers;
 
 namespace PhotoInvasion.Controllers
 {
@@ -76,57 +77,62 @@ namespace PhotoInvasion.Controllers
             {
                 return Content("No album selected!");
             }
-
-            string status = "Upload cu success";
-            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-            CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
-            container.CreateIfNotExists();
-            container.SetPermissions(
-                new BlobContainerPermissions
-                {
-                    PublicAccess = BlobContainerPublicAccessType.Blob
-                });
-
-
-            var file = Request.Files["myfile"];
-            string url = "";
-            if (file != null)
+            if (model.WM.Equals("Watermark"))
             {
-                Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob blockBlob = container.GetBlockBlobReference(file.FileName);
-
-                try
-                {
-                    Stream stream = new MemoryStream();
-                    stream = VaryQualityLevel(file);
-                    stream.Seek(0, SeekOrigin.Begin);
-                    blockBlob.UploadFromStream(stream);
-                    //blockBlob.UploadFromStream(file.InputStream);
-                    url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
-                }
-                catch (Exception)
-                {
-                    status = "Upload nereusit";
-                }
+                AddPhotoWithWaterMark(model, id);
             }
-
-
-
-            if (ModelState.IsValid)
+            else
             {
-                _photosLogic.addPhoto(
-                    new PhotoInvasion.DAL.Photo
+                string status = "Upload cu success";
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+                container.CreateIfNotExists();
+                container.SetPermissions(
+                    new BlobContainerPermissions
                     {
-                        AlbumId = id.Value,
-                        UserId = WebSecurity.CurrentUserId,
-                        //Source = model.Source,
-                        Source = url,
-                        Description = model.Description,
-                        CategoryId = model.CategoryId,
-                        Views = 0,
-                        Date = DateTime.Now
+                        PublicAccess = BlobContainerPublicAccessType.Blob
                     });
-            }
 
+
+                var file = Request.Files["myfile"];
+                string url = "";
+                if (file != null)
+                {
+                    Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob blockBlob = container.GetBlockBlobReference(file.FileName);
+
+                    try
+                    {
+                        Stream stream = new MemoryStream();
+                        stream = VaryQualityLevel(file);
+                        stream.Seek(0, SeekOrigin.Begin);
+                        blockBlob.UploadFromStream(stream);
+                        //blockBlob.UploadFromStream(file.InputStream);
+                        url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
+                    }
+                    catch (Exception)
+                    {
+                        status = "Upload nereusit";
+                    }
+                }
+
+
+
+                if (ModelState.IsValid)
+                {
+                    _photosLogic.addPhoto(
+                        new PhotoInvasion.DAL.Photo
+                        {
+                            AlbumId = id.Value,
+                            UserId = WebSecurity.CurrentUserId,
+                            //Source = model.Source,
+                            Source = url,
+                            Description = model.Description,
+                            CategoryId = model.CategoryId,
+                            Views = 0,
+                            Date = DateTime.Now
+                        });
+                }
+            }
             return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = id.Value });
         }
 
@@ -228,6 +234,74 @@ namespace PhotoInvasion.Controllers
             return ms;
 
         }
+        private Byte[] WaterMark(Stream s)
+        {
+            MemoryStream str = new MemoryStream();
+            System.Web.Helpers.WebImage webimg = new System.Web.Helpers.WebImage(s);
+            String wm = WebSecurity.CurrentUserName;
+            webimg.AddTextWatermark(wm, "White", 16, "Regular", "Lucida Calligraphy", "Right", "Bottom", 50, 10);
 
+            return webimg.GetBytes();
+        }
+        public void AddPhotoWithWaterMark(AddPhotoModel model, int? id)  //HttpPostedFileBase file
+        {
+
+            //if (id == null)
+            //{
+            //    return Content("No album selected!");
+            //}
+
+            string status = "Upload cu success";
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+            container.CreateIfNotExists();
+            container.SetPermissions(
+                new BlobContainerPermissions
+                {
+                    PublicAccess = BlobContainerPublicAccessType.Blob
+                });
+
+
+            var file = Request.Files["myfile"];
+            string url = "";
+            if (file != null)
+            {
+                Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob blockBlob = container.GetBlockBlobReference(file.FileName);
+
+                try
+                {
+                    Stream stream = new MemoryStream();
+                    stream = VaryQualityLevel(file);
+                    stream.Seek(0, SeekOrigin.Begin);
+                    byte[] buffer = new byte[1048576 * 2];
+                    buffer = WaterMark(stream);
+                    blockBlob.UploadFromByteArray(buffer, 0, buffer.Length);
+                    //blockBlob.UploadFromStream(file.InputStream);
+                    url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
+                }
+                catch (Exception)
+                {
+                    status = "Upload nereusit";
+                }
+            }
+
+            if (ModelState.IsValid)
+            {
+                _photosLogic.addPhoto(
+                    new PhotoInvasion.DAL.Photo
+                    {
+                        AlbumId = id.Value,
+                        UserId = WebSecurity.CurrentUserId,
+                        //Source = model.Source,
+                        Source = url,
+                        Description = model.Description,
+                        CategoryId = model.CategoryId,
+                        Views = 0,
+                        Date = DateTime.Now
+                    });
+            }
+
+            //return RedirectToAction("ViewAlbum", "Album", new { id = id.Value });
+        }
     }
 }

@@ -110,9 +110,9 @@ namespace PhotoInvasion.Controllers
                     blockBlob.UploadFromStream(stream);
                     url = "http://storagetest.blob.core.windows.net" + blockBlob.Uri.AbsolutePath;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    return Content("Upload failed");
+                    return Content(e.StackTrace.ToString());
                 }
             }
 

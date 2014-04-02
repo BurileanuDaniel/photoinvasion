@@ -44,7 +44,7 @@
     {
         foreach (var photo in Model.recentActivity)
         {
-            <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = Model.userProfile.UserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
                 <div class="imageWrapper">
                     <table>
                         <tr>

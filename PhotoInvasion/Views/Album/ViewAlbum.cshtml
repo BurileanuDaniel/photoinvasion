@@ -8,9 +8,9 @@
 <a class="addButton" href="@Url.Action("Albums", "Home", new { Id = @Model.UserId })"><i class="fa fa-arrow-circle-o-left fa-2x"></i>&nbspBack to albums</a>
 <h1>@Model.Name</h1><br />
 <div class="alignCenter">
-    @if (ViewBag.viewerId == -1 || ViewBag.viewerId == WebSecurity.CurrentUserId)
+    @if (ViewBag.viewerId == WebSecurity.CurrentUserId)
     {
-        <a class="addButton" href="@Url.Action("AddPhoto", "Album", new { Id = ViewBag.albumId },null)"><i class="fa fa-plus fa-2x"></i>&nbspAdd photo</a>        
+        <a class="addButton" href="@Url.Action("AddPhoto", "Album", new { Id = ViewBag.viewerId, a = ViewBag.albumId },null)"><i class="fa fa-plus fa-2x"></i>&nbspAdd photo</a>        
         <br />
     }
     
@@ -22,7 +22,7 @@
     {
         foreach (var photo in Model.Photo)
         {
-            <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+            <a href="@Url.Action("ViewPhoto", "Album", new { id = ViewBag.viewerId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
                 <div class="albumPhoto">
                     <table>
                         <tr>
@@ -38,9 +38,9 @@
                                 <span>@photo.Description</span>
                             </td>
                             <td align="right" valign="top">
-                                @if (ViewBag.viewerId == -1 || ViewBag.viewerId == WebSecurity.CurrentUserId)
+                                @if (ViewBag.viewerId == WebSecurity.CurrentUserId)
                                 {
-                                    <a href="@Url.Action("DeletePhoto", "Album", new { Id = @photo.Id, AlbumId = @photo.AlbumId })"><i class="fa fa-times fa-3x"></i></a>                                    
+                                    <a href="@Url.Action("DeletePhoto", "Album", new { Id = ViewBag.viewerId, p = @photo.Id, AlbumId = @photo.AlbumId })"><i class="fa fa-times fa-3x"></i></a>                                    
                                 }
                             </td>
                         </tr>

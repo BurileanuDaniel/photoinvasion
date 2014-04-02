@@ -74,6 +74,8 @@ namespace PhotoInvasion.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
+
+            string roleName = model.status;
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -87,6 +89,9 @@ namespace PhotoInvasion.Controllers
                         Description = model.Description,
                         City = model.City
                     });
+                    Roles.AddUserToRole(model.UserName, roleName);
+                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
@@ -261,6 +266,7 @@ namespace PhotoInvasion.Controllers
         {
             string provider = null;
             string providerUserId = null;
+            string roleName = model.status;
 
             if (User.Identity.IsAuthenticated || !OAuthWebSecurity.TryDeserializeProviderUserId(model.ExternalLoginData, out provider, out providerUserId))
             {
@@ -288,6 +294,9 @@ namespace PhotoInvasion.Controllers
                             City = model.City
                         });
                         db.SaveChanges();
+
+                        Roles.AddUserToRole(model.UserName, roleName);
+                        FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
                         OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);

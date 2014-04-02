@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "ViewPhoto";
+    ViewBag.uid = ViewContext.RouteData.Values["id"] == null ? WebSecurity.CurrentUserId : int.Parse(ViewContext.RouteData.Values["id"].ToString());
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,6 +11,8 @@
     <div class="photoContainer">
         <img src="@Model.photo.Source" />
     </div>
+    <div id="fb-root"></div>
+    <div class="fb-share-button" data-href="@Request.Url.AbsoluteUri" data-type="button"></div>
     <p>
         <a href="@Url.Action("ViewProfile", "Home", new { id = @Model.photo.UserId})">
             <span class="label">User</span>
@@ -40,11 +43,11 @@
     @if (@Model.rating == -1)
     {
         <div id="ratePhoto">
-            <a class="rateButton" href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 1, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 2, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 3, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 4, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
-            <a href="@Url.Action("RatePhoto", "Album", new { id = @Model.photo.Id, rating = 5, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a class="rateButton" href="@Url.Action("RatePhoto", "Album", new { id = ViewBag.uid, p = @Model.photo.Id, rating = 1, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = ViewBag.uid, p = @Model.photo.Id, rating = 2, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = ViewBag.uid, p = @Model.photo.Id, rating = 3, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = ViewBag.uid, p = @Model.photo.Id, rating = 4, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
+            <a href="@Url.Action("RatePhoto", "Album", new { id = ViewBag.uid, p = @Model.photo.Id, rating = 5, returnUrl = @Model.returnUrl }, null)"><i class="fa fa-star-o fa-3x"></i></a>
         </div>
     }
     else
@@ -57,6 +60,5 @@
         </div>
         <a href="@Url.Action("DeleteRating", "Album", new { id = @Model.photo.Id, returnUrl = @Model.returnUrl }, null)"><button>Remove rating</button></a>
     }
-
 </div>
 @Scripts.Render("~/Scripts/viewPhoto.js")

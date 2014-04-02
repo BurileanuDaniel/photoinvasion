@@ -45,7 +45,7 @@ namespace PhotoInvasion.Controllers
                 return Content("No album to display.");
             }
 
-            ViewBag.viewerId = (null != id ) ? id.Value : -1;
+            ViewBag.viewerId = (null != id ) ? id.Value : WebSecurity.CurrentUserId;
             ViewBag.albumId = a.Value;
             var model = _albumLogic.getAlbumDetails(a.Value);
 
@@ -53,15 +53,16 @@ namespace PhotoInvasion.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddPhoto(int? id)
+        public ActionResult AddPhoto(int? id, int? a)
         {
-            if (id == null)
+            if (a == null)
             {
                 return Content("No album selected!");
             }
 
             var model = new AddPhotoModel
             {
+                AlbumId = a.Value,
                 CategoryOptions = _categoriesLogic.getCategories()
             };
 
@@ -69,10 +70,10 @@ namespace PhotoInvasion.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddPhoto(AddPhotoModel model, int? id)  //HttpPostedFileBase file
+        public ActionResult AddPhoto(AddPhotoModel model, int? id, int? a)  //HttpPostedFileBase file
         {
 
-            if (id == null)
+            if (a == null)
             {
                 return Content("No album selected!");
             }
@@ -116,7 +117,7 @@ namespace PhotoInvasion.Controllers
                 _photosLogic.addPhoto(
                     new PhotoInvasion.DAL.Photo
                     {
-                        AlbumId = id.Value,
+                        AlbumId = a.Value,
                         UserId = WebSecurity.CurrentUserId,
                         //Source = model.Source,
                         Source = url,
@@ -127,21 +128,30 @@ namespace PhotoInvasion.Controllers
                     });
             }
 
-            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = id.Value });
+            return RedirectToAction("ViewAlbum", "Album", new {id = WebSecurity.CurrentUserId, a = a.Value });
         }
 
 
-        public ActionResult ViewPhoto(int? id, string returnUrl)
+        public ActionResult ViewPhoto(int? id, int? p, string returnUrl)
         {
-            if (id == null)
+            if (null == id)
+            {
+                ViewBag.viewer = WebSecurity.CurrentUserId;
+            }
+            else
+            {
+                ViewBag.viewer = id.Value;
+            }
+
+            if (p == null)
             {
                 return Content("No photo selected!");
             }
             else
             {
-                int rating = _ratingsLogic.getRating(id.Value, WebSecurity.CurrentUserId);
-                _photosLogic.viewPhoto(id.Value);
-                var photo = _photosLogic.getPhoto(id.Value);
+                int rating = _ratingsLogic.getRating(p.Value, WebSecurity.CurrentUserId);
+                _photosLogic.viewPhoto(p.Value);
+                var photo = _photosLogic.getPhoto(p.Value);
                 var model = new PhotoViewModel
                 {
                     photo = photo,
@@ -154,28 +164,28 @@ namespace PhotoInvasion.Controllers
             }
         }
 
-        public ActionResult DeletePhoto(int? id, int? AlbumId)
+        public ActionResult DeletePhoto(int? id, int? p, int? AlbumId)
         {
-            if (id == null)
+            if (p == null)
             {
                 return Content("No photo selected");
             }
 
-            _photosLogic.deletePhoto(id.Value);
+            _photosLogic.deletePhoto(p.Value);
             return RedirectToAction("ViewAlbum", "Album", new { id = WebSecurity.CurrentUserId, a = AlbumId.Value });
         }
 
-        public ActionResult RatePhoto(int id, int rating, string returnUrl)
+        public ActionResult RatePhoto(int id, int p, int rating, string returnUrl)
         {
             _ratingsLogic.addRating(new PhotoInvasion.DAL.Rating
             {
-                PhotoId = id,
+                PhotoId = p,
                 Rating1 = rating,
                 Seen = 0,
                 UserId = WebSecurity.CurrentUserId
             });
 
-            return RedirectToAction("ViewPhoto", "Album", new { id = id, returnUrl = returnUrl });
+            return RedirectToAction("ViewPhoto", "Album", new { id = id, p = p, returnUrl = returnUrl });
         }
 
         public ActionResult DeleteRating(int id, string returnUrl)

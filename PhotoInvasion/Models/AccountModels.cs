@@ -54,6 +54,9 @@ namespace PhotoInvasion.Models
 
         [Display(Name = "City")]
         public string City { get; set; }
+
+        [Display(Name = "Type of user:")]
+        public string status { get; set; }
         public string ExternalLoginData { get; set; }
     }
 
@@ -124,6 +127,9 @@ namespace PhotoInvasion.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Type of user:")]
+        public string status { get; set; }
     }
 
     public class ExternalLogin

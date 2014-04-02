@@ -19,6 +19,8 @@ namespace PhotoInvasion.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        public int AlbumId { get; set; }
+
         public IEnumerable<PhotoInvasion.DAL.Category> CategoryOptions;
     }
 

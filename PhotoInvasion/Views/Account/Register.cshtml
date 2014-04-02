@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "Register";
 }
-
+@{
+    var listItems = new List<System.Web.UI.WebControls.ListItem> { new System.Web.UI.WebControls.ListItem { Text = "Photographer", Value = "Photographer" }, new System.Web.UI.WebControls.ListItem { Text = "Viewer", Value = "Viewer" } };
+}
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
     <h2>Create a new account.</h2>
@@ -15,6 +17,11 @@
     <fieldset>
         <legend>Registration Form</legend>
         <ol>
+            <li>
+                @Html.LabelFor(m => m.status)
+                @Html.DropDownListFor(m => m.status, new SelectList(listItems), "-- Select Role --")
+            </li>
+
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)

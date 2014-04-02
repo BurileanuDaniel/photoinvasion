@@ -9,7 +9,7 @@
 <div class="homePhotosContainer">
     @foreach (var photo in Model.newsFeedPhotos)
     {
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+        <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
             <div class="imageWrapper">
                 <table>
                     <tr>
@@ -43,7 +43,7 @@
 <div class="homePhotosContainer">
     @foreach (var photo in Model.mostViewedPhotos)
     {
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+        <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
             <div class="imageWrapper">
                 <table>
                     <tr>
@@ -77,7 +77,7 @@
 <div class="homePhotosContainer">
     @foreach (var photo in Model.bestRatedPhotos)
     {
-        <a href="@Url.Action("ViewPhoto", "Album", new { id = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
+        <a href="@Url.Action("ViewPhoto", "Album", new { id = WebSecurity.CurrentUserId, p = @photo.Id, returnUrl = Request.Url.AbsoluteUri }, null)">
             <div class="imageWrapper">
                 <table>
                     <tr>

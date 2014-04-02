@@ -18,6 +18,10 @@ namespace PhotoInvasion.Models
 
         [Display(Name = "Description")]
         public string Description { get; set; }
+        
+        [Required]
+        [Display(Name = "Watemark")]
+        public string WM { get; set; }
 
         public int AlbumId { get; set; }
 

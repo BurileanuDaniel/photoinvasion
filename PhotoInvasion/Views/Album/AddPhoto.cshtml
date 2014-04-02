@@ -4,7 +4,9 @@
     ViewBag.Title = "AddPhoto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{
+    var listItems = new List<System.Web.UI.WebControls.ListItem> { new System.Web.UI.WebControls.ListItem { Text = "Watermark", Value = "Watermark" }, new System.Web.UI.WebControls.ListItem { Text = "No Watermark", Value = "NoWatermark" } };
+}
 <h1>Add new photo</h1>
 <div>
     <a class="addButton" href="@Url.Action("ViewAlbum", "Album", new { id = WebSecurity.CurrentUserId, a = Model.AlbumId})"><i class="fa fa-arrow-circle-o-left fa-2x"></i>&nbspBack to album</a>
@@ -46,6 +48,11 @@
             <div class="editor-field">
                 @Html.EditorFor(model => model.Description)
                 @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+            <div class="editor-field">
+                @Html.DropDownListFor(m => m.WM, new SelectList(listItems), "-- Add Watermark --")
+                @Html.ValidationMessageFor(model => model.WM)
             </div>
 
             <p>

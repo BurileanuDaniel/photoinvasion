@@ -131,7 +131,6 @@ E:\excite\PhotoInvasion\PhotoInvasion\bin\System.Web.WebPages.Razor.dll
 E:\excite\PhotoInvasion\PhotoInvasion\bin\WebGrease.dll
 E:\excite\PhotoInvasion\PhotoInvasion\bin\WebMatrix.Data.dll
 E:\excite\PhotoInvasion\PhotoInvasion\bin\WebMatrix.WebData.dll
-E:\excite\PhotoInvasion\PhotoInvasion\bin\Microsoft.WindowsAzure.StorageClient.dll
 E:\excite\PhotoInvasion\PhotoInvasion\bin\PhotoInvasion.BLL.pdb
 E:\excite\PhotoInvasion\PhotoInvasion\bin\PhotoInvasion.DAL.pdb
 E:\excite\PhotoInvasion\PhotoInvasion\bin\EntityFramework.xml

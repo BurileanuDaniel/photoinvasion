@@ -40,10 +40,6 @@ namespace PhotoInvasion.Controllers
 
         public ActionResult ViewAlbum(int? id, int? a)
         {
-            //if (User.Identity.IsAuthenticated == false)
-            //{
-            //    return Content("User must be authenitcated");
-            //}
             if (a == null)
             {
                 return Content("No album to display.");
@@ -135,23 +131,6 @@ namespace PhotoInvasion.Controllers
         }
 
 
-        //[HttpGet]
-        //public ActionResult UploadImagine(int? id)
-        //{
-
-        //    if (id == null)
-        //    {
-        //        return Content("No album selected!");
-        //    }
-
-        //    var model = new AddPhotoModel
-        //    {
-        //        CategoryOptions = _categoriesLogic.getCategories()
-        //    };
-
-        //    return View(model);
-
-        //}  
         public ActionResult ViewPhoto(int? id, string returnUrl)
         {
             if (id == null)

@@ -23,12 +23,9 @@ namespace PhotoInvasion
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            //bundles.Add(new StyleBundle("~/Content/bootstrap/css").Include("~/Content/bootstrap/css/bootstrap.css"));
-
-            bundles.Add(new StyleBundle("~/Content/font-awesome/css").Include("~/Content/font-awesome/css/font-awesome.css"));
-
             bundles.Add(new StyleBundle("~/Content/css").Include(
                                                     "~/Content/site.css",
+                                                    "~/Content/font-awesome.css",
                                                     "~/Content/zocial/zocial.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

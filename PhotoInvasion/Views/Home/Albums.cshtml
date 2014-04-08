@@ -42,10 +42,16 @@ else
                 </a>
             }
             <br /><br />
-            @if (null == ViewContext.RouteData.Values["id"] || (null != ViewContext.RouteData.Values["id"] && int.Parse(ViewContext.RouteData.Values["id"].ToString()) == WebSecurity.CurrentUserId))
+            @*@if (null == ViewContext.RouteData.Values["id"] || (null != ViewContext.RouteData.Values["id"] && int.Parse(ViewContext.RouteData.Values["id"].ToString()) == WebSecurity.CurrentUserId))
             {
                 <a class="addButton" href="@Url.Action("AddAlbum", "Home")"><i class="fa fa-plus fa-3x"></i></a>        
-            }
+            }*@
         </div>
     }
+    <div class="alignCenter">
+        @if (null == ViewContext.RouteData.Values["id"] || (null != ViewContext.RouteData.Values["id"] && int.Parse(ViewContext.RouteData.Values["id"].ToString()) == WebSecurity.CurrentUserId))
+        {
+            <a class="addButton" href="@Url.Action("AddAlbum", "Home")"><i class="fa fa-plus fa-3x"></i></a>
+        }
+    </div>
 }

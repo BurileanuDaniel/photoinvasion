@@ -54,6 +54,7 @@ namespace PhotoInvasion.Controllers
         }
 
         [HttpGet]
+        [Authorize (Roles = "Photographer")]
         public ActionResult AddPhoto(int? id, int? a)
         {
             if (a == null)
@@ -71,6 +72,7 @@ namespace PhotoInvasion.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Photographer")]
         public ActionResult AddPhoto(AddPhotoModel model, int? id, int? a)  //HttpPostedFileBase file
         {
 
@@ -101,10 +103,16 @@ namespace PhotoInvasion.Controllers
                     Stream stream = new MemoryStream();
                     stream = VaryQualityLevel(file);
                     stream.Seek(0, SeekOrigin.Begin);
-                    if (model.WM.Equals("Watermark"))
+                    if (model.WM.Equals("Watermark - White"))
                     {
                         byte[] buffer = new byte[1048576 * 2];
-                        buffer = WaterMark(stream);
+                        buffer = WaterMark(stream,"White");
+                        stream = new MemoryStream(buffer);
+                    }
+                    if (model.WM.Equals("Watermark - Black"))
+                    {
+                        byte[] buffer = new byte[1048576 * 2];
+                        buffer = WaterMark(stream,"Black");
                         stream = new MemoryStream(buffer);
                     }
                     blockBlob.UploadFromStream(stream);
@@ -168,6 +176,7 @@ namespace PhotoInvasion.Controllers
             }
         }
 
+        [Authorize(Roles = "Photographer")]
         public ActionResult DeletePhoto(int? id, int? p, int? AlbumId)
         {
             if (p == null)
@@ -242,12 +251,12 @@ namespace PhotoInvasion.Controllers
             return ms;
 
         }
-        private Byte[] WaterMark(Stream s)
+        private Byte[] WaterMark(Stream s,string color)
         {
             MemoryStream str = new MemoryStream();
             System.Web.Helpers.WebImage webimg = new System.Web.Helpers.WebImage(s);
             String wm = WebSecurity.CurrentUserName;
-            webimg.AddTextWatermark(wm, "White", 16, "Regular", "Microsoft Sans Serif", "Right", "Bottom", 50, 10);
+            webimg.AddTextWatermark(wm, color, 16, "Regular", "Microsoft Sans Serif", "Right", "Bottom", 50, 10);
 
             return webimg.GetBytes();
         }
